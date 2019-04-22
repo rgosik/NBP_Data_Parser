@@ -12,14 +12,14 @@ import java.nio.channels.Channels;
 import java.nio.channels.ReadableByteChannel;
 import java.util.*;
 
-public class Service {
+public class FilesManager {
 
     static List<File> getXmlFiles() throws Exception {
         ReadableByteChannel rbc;
         FileOutputStream xmlFos;
         List<File> xmlFiles = new ArrayList<>();
 
-        List<String> validXmlNames = Service.trimDirTxt(InputManager.formatedStartDate, InputManager.formatedEndDate);
+        List<String> validXmlNames = FilesManager.trimDirTxt(InputManager.formatedStartDate, InputManager.formatedEndDate);
         int filesNumber = validXmlNames.size();
 
         for (int i = 0; i < filesNumber; i++) {
@@ -43,7 +43,7 @@ public class Service {
         String xmlName = null;
         List<String> validXmlNames = new ArrayList<>();
 
-        String dirTxt = Service.getDirTxt(InputManager.startYear, InputManager.endYear);
+        String dirTxt = FilesManager.getDirTxt(InputManager.startYear, InputManager.endYear);
         BufferedReader bufReader = new BufferedReader(new StringReader(dirTxt));
 
         while ((xmlName = bufReader.readLine()) != null) {

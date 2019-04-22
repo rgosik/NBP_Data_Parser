@@ -15,7 +15,7 @@ public class Parser {
 
     static void unmarshalXmlFilesToObjects() throws Exception {
         JAXBContext jaxbContext;
-        List<File> xmlFiles = Service.getXmlFiles();
+        List<File> xmlFiles = FilesManager.getXmlFiles();
 
         for (File xmlFile : xmlFiles) {
             try {

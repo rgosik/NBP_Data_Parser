@@ -8,7 +8,7 @@ public class MainClass {
         InputManager.initCode(args[0]);
         InputManager.initDates(args[1], args[2]);
 
-        Service.getXmlFiles();
+        FilesManager.getXmlFiles();
 
         Parser.unmarshalXmlFilesToObjects();
         Double meanBuyRate = Parser.getMeanRate("Buy");
