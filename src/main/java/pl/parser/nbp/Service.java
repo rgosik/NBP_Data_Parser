@@ -15,18 +15,14 @@ import java.util.*;
 public class Service {
 
     static List<File> getXmlFiles() throws Exception {
-
-        List<String> validXmlNames = Service.trimDirTxt(InputManager.formatedStartDate, InputManager.formatedEndDate);
-
         ReadableByteChannel rbc;
         FileOutputStream xmlFos;
-
         List<File> xmlFiles = new ArrayList<>();
 
+        List<String> validXmlNames = Service.trimDirTxt(InputManager.formatedStartDate, InputManager.formatedEndDate);
         int filesNumber = validXmlNames.size();
 
         for (int i = 0; i < filesNumber; i++) {
-
             URL website = new URL("http://www.nbp.pl/kursy/xml/" + validXmlNames.get(i) + ".xml");
             rbc = Channels.newChannel(website.openStream());
 
@@ -44,12 +40,11 @@ public class Service {
     }
 
     static private List<String> trimDirTxt(int startDate, int endDate) throws Exception {
+        String xmlName = null;
+        List<String> validXmlNames = new ArrayList<>();
 
         String dirTxt = Service.getDirTxt(InputManager.startYear, InputManager.endYear);
-
         BufferedReader bufReader = new BufferedReader(new StringReader(dirTxt));
-        String xmlName = null;
-        List<String> validXmlNames = new ArrayList<String>();
 
         while ((xmlName = bufReader.readLine()) != null) {
             if (xmlName.charAt(0) == 'c') {
@@ -63,7 +58,6 @@ public class Service {
     }
 
     static private String getDirTxt(int startYear, int endYear) throws Exception {
-
         int currentYear = Calendar.getInstance().get(Calendar.YEAR);
         List<String> dirTxt = new ArrayList<>();
         List<Integer> measuredYears = new ArrayList<>();

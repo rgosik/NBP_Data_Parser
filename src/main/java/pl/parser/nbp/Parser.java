@@ -14,7 +14,6 @@ public class Parser {
     private static List<RatesTable> ratesTables = new ArrayList<>();
 
     static void unmarshalXmlFilesToObjects() throws Exception {
-
         JAXBContext jaxbContext;
         List<File> xmlFiles = Service.getXmlFiles();
 
@@ -48,11 +47,10 @@ public class Parser {
                 }
             }
         }
-
         return rate / ratesTables.size();
     }
 
-    static double getRateSstandardDeviation() throws Exception {
+    static double getRateStandardDeviation() throws Exception {
         double tmp = 0.0;
         double rateMean = getMeanRate("Sell");
         String stringKurs = null;
@@ -68,7 +66,6 @@ public class Parser {
                 }
             }
         }
-
         return Math.sqrt(tmp / ratesTables.size());
     }
 
