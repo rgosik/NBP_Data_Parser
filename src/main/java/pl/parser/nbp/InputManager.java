@@ -8,10 +8,12 @@ import java.util.Date;
 public class InputManager {
 
     static String currencyCode;
-    static int formatedStartDate;
-    static int formatedEndDate;
+    static int editedStartDate;
+    static int editedEndDate;
     static int startYear;
     static int endYear;
+
+    // Zabezpieczenie przed podaniem nieprawidłowego kodu waluty
 
     static void initCode(String code) {
         String inputCode = code;
@@ -23,22 +25,7 @@ public class InputManager {
         currencyCode = inputCode;
     }
 
-    static void initDates(String dateS, String dateK) throws Exception {
-        String startDate = inputDate(dateS);
-        String endDate = inputDate(dateK);
-        Date dateStart = new SimpleDateFormat("yyyy-MM-dd").parse(startDate);
-        Date dateEnd = new SimpleDateFormat("yyyy-MM-dd").parse(endDate);
-
-        if (dateEnd.before(dateStart)) {
-            System.out.println("Podana data końcowa jest wcześniejsza niż data początkowa");
-            System.exit(0);
-        }
-
-        formatedStartDate = Integer.parseInt(startDate.replaceAll("[^a-zA-Z0-9]", "").substring(2));
-        formatedEndDate = Integer.parseInt(endDate.replaceAll("[^a-zA-Z0-9]", "").substring(2));
-        startYear = Integer.parseInt(dateS.substring(0, 4));
-        endYear = Integer.parseInt(dateK.substring(0, 4));
-    }
+    // Zabezpieczenie przed podaniem daty w niewsłaciwej postaci
 
     static String inputDate(String date) {
         String inputDate = date;
@@ -53,6 +40,25 @@ public class InputManager {
             System.exit(0);
         }
         return inputDate;
+    }
+
+    // Edytowanie podanej daty do formatu który pozwoli, w dalszej części programu, łatwo odnajdować i pobierać odpowiedni pliki
+
+    static void initDates(String dateS, String dateK) throws Exception {
+        String startDate = inputDate(dateS);
+        String endDate = inputDate(dateK);
+        Date dateStart = new SimpleDateFormat("yyyy-MM-dd").parse(startDate);
+        Date dateEnd = new SimpleDateFormat("yyyy-MM-dd").parse(endDate);
+
+        if (dateEnd.before(dateStart)) {
+            System.out.println("Podana data końcowa jest wcześniejsza niż data początkowa");
+            System.exit(0);
+        }
+
+        editedStartDate = Integer.parseInt(startDate.replaceAll("[^a-zA-Z0-9]", "").substring(2));
+        editedEndDate = Integer.parseInt(endDate.replaceAll("[^a-zA-Z0-9]", "").substring(2));
+        startYear = Integer.parseInt(dateS.substring(0, 4));
+        endYear = Integer.parseInt(dateK.substring(0, 4));
     }
 
 }

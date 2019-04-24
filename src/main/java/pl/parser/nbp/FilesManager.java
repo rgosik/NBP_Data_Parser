@@ -14,48 +14,7 @@ import java.util.*;
 
 public class FilesManager {
 
-    static List<File> getXmlFiles() throws Exception {
-        ReadableByteChannel rbc;
-        FileOutputStream xmlFos;
-        List<File> xmlFiles = new ArrayList<>();
-
-        List<String> validXmlNames = FilesManager.trimDirTxt(InputManager.formatedStartDate, InputManager.formatedEndDate);
-        int filesNumber = validXmlNames.size();
-
-        for (int i = 0; i < filesNumber; i++) {
-            URL website = new URL("http://www.nbp.pl/kursy/xml/" + validXmlNames.get(i) + ".xml");
-            rbc = Channels.newChannel(website.openStream());
-
-            xmlFiles.add(new File("file" + Integer.toString(i) + ".xml"));
-            xmlFiles.get(i).deleteOnExit();
-
-            xmlFos = new FileOutputStream(xmlFiles.get(i));
-            xmlFos.getChannel().transferFrom(rbc, 0, Long.MAX_VALUE);
-
-            xmlFos.close();
-            rbc.close();
-        }
-
-        return xmlFiles;
-    }
-
-    static private List<String> trimDirTxt(int startDate, int endDate) throws Exception {
-        String xmlName = null;
-        List<String> validXmlNames = new ArrayList<>();
-
-        String dirTxt = FilesManager.getDirTxt(InputManager.startYear, InputManager.endYear);
-        BufferedReader bufReader = new BufferedReader(new StringReader(dirTxt));
-
-        while ((xmlName = bufReader.readLine()) != null) {
-            if (xmlName.charAt(0) == 'c') {
-                int date = Integer.parseInt(xmlName.substring(xmlName.length() - 6));
-                if (date >= startDate && date <= endDate) {
-                    validXmlNames.add(xmlName);
-                }
-            }
-        }
-        return validXmlNames;
-    }
+    // Pobieranie danych z plików dir(rok).txt, ze strony nbp, które zawierają nazwy wszystkich plkiów xml z kursami, z podanych lat
 
     static private String getDirTxt(int startYear, int endYear) throws Exception {
         int currentYear = Calendar.getInstance().get(Calendar.YEAR);
@@ -89,6 +48,53 @@ public class FilesManager {
 
         finalDirTxt = sb.toString();
         return finalDirTxt;
+    }
+
+    // Okrojenie pobranego Stringa nazw plików xml to Listy zawierającej jedynie nazwy plików z podanego na wejściu przedziału czasowego
+
+    static private List<String> trimDirTxt(int startDate, int endDate) throws Exception {
+        String xmlName;
+        List<String> validXmlNames = new ArrayList<>();
+
+        String dirTxt = FilesManager.getDirTxt(InputManager.startYear, InputManager.endYear);
+        BufferedReader bufReader = new BufferedReader(new StringReader(dirTxt));
+
+        while ((xmlName = bufReader.readLine()) != null) {
+            if (xmlName.charAt(0) == 'c') {
+                int date = Integer.parseInt(xmlName.substring(xmlName.length() - 6));
+                if (date >= startDate && date <= endDate) {
+                    validXmlNames.add(xmlName);
+                }
+            }
+        }
+        return validXmlNames;
+    }
+
+    // Pobranie plików xml z okorojonej Listy nazw plików xml. W efekcie pobieramy tylko te pliki xml które są nam potrzebne do uzyskania wyniku
+
+    static List<File> getXmlFiles() throws Exception {
+        ReadableByteChannel rbc;
+        FileOutputStream xmlFos;
+        List<File> xmlFiles = new ArrayList<>();
+
+        List<String> validXmlNames = FilesManager.trimDirTxt(InputManager.editedStartDate, InputManager.editedEndDate);
+        int filesNumber = validXmlNames.size();
+
+        for (int i = 0; i < filesNumber; i++) {
+            URL website = new URL("http://www.nbp.pl/kursy/xml/" + validXmlNames.get(i) + ".xml");
+            rbc = Channels.newChannel(website.openStream());
+
+            xmlFiles.add(new File("file" + Integer.toString(i) + ".xml"));
+            xmlFiles.get(i).deleteOnExit();
+
+            xmlFos = new FileOutputStream(xmlFiles.get(i));
+            xmlFos.getChannel().transferFrom(rbc, 0, Long.MAX_VALUE);
+
+            xmlFos.close();
+            rbc.close();
+        }
+
+        return xmlFiles;
     }
 
 }

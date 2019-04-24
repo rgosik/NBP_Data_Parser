@@ -13,6 +13,8 @@ public class Parser {
 
     private static List<RatesTable> ratesTables = new ArrayList<>();
 
+    // Parsowanie danych z plików XML do listy "ratesTables"
+
     static void unmarshalXmlFilesToObjects() throws Exception {
         JAXBContext jaxbContext;
         List<File> xmlFiles = FilesManager.getXmlFiles();
@@ -29,6 +31,8 @@ public class Parser {
             }
         }
     }
+
+    // Policzenie średniej kursu sprzedaży, bądź kupna, dla danych w liście "ratesTables"
 
     static double getMeanRate(String rateType) throws Exception {
         double rate = 0.0;
@@ -50,6 +54,8 @@ public class Parser {
         return rate / ratesTables.size();
     }
 
+    // Policzenie odchylenia standardowego kursu sprzedaży, bądź kupna, dla danych w liście "ratesTables" i podanego kodu waluty
+
     static double getRateStandardDeviation() throws Exception {
         double tmp = 0.0;
         double rateMean = getMeanRate("Sell");
@@ -68,6 +74,8 @@ public class Parser {
         }
         return Math.sqrt(tmp / ratesTables.size());
     }
+
+    // Konwersja danych dotyczącyh kursów walut, ze String na Double (pliki xml zawierają dane o kursach oddzielając część dziesiętną przecinkiem)
 
     static private double stringRateToDouble(String rate) throws Exception {
         NumberFormat format = NumberFormat.getInstance(Locale.FRANCE);
