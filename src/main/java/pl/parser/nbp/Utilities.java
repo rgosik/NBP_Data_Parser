@@ -12,6 +12,12 @@ public class Utilities {
         return number.doubleValue();
     }
 
-    static boolean 
+    static boolean isBuyOrSell(String rateType){
+        if(rateType.equals("Buy") || rateType.equals("Sell")){
+            return true;
+        } else {
+            return false;
+        }
+    }
 
 }
