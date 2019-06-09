@@ -1,12 +1,13 @@
 package pl.parser.nbp;
 
 import lombok.Data;
+import pl.parser.nbp.XMLModel.Position;
+import pl.parser.nbp.XMLModel.RatesTable;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
 import java.io.File;
-import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.List;
 

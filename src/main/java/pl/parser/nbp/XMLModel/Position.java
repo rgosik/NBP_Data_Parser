@@ -1,4 +1,4 @@
-package pl.parser.nbp;
+package pl.parser.nbp.XMLModel;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
