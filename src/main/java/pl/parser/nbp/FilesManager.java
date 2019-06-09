@@ -14,9 +14,15 @@ import java.util.*;
 
 public class FilesManager {
 
+    InputManager inputManager;
+
+    public FilesManager(InputManager inputManager){
+        this.inputManager = inputManager;
+    }
+
     // Pobieranie danych z plików dir(rok).txt, ze strony nbp, które zawierają nazwy wszystkich plkiów xml z kursami, z podanych lat
 
-    static private String getDirTxt(int startYear, int endYear) throws Exception {
+    public String getDirTxt(int startYear, int endYear) throws Exception {
         int currentYear = Calendar.getInstance().get(Calendar.YEAR);
         List<String> dirTxt = new ArrayList<>();
         List<Integer> measuredYears = new ArrayList<>();
@@ -52,11 +58,11 @@ public class FilesManager {
 
     // Okrojenie pobranego Stringa nazw plików xml to Listy zawierającej jedynie nazwy plików z podanego na wejściu przedziału czasowego
 
-    static private List<String> trimDirTxt(int startDate, int endDate) throws Exception {
+    public List<String> trimDirTxt(int startDate, int endDate) throws Exception {
         String xmlName;
         List<String> validXmlNames = new ArrayList<>();
 
-        String dirTxt = FilesManager.getDirTxt(InputManager.startYear, InputManager.endYear);
+        String dirTxt = getDirTxt(inputManager.getStartYear(), inputManager.getEndYear());
         BufferedReader bufReader = new BufferedReader(new StringReader(dirTxt));
 
         while ((xmlName = bufReader.readLine()) != null) {
@@ -72,12 +78,12 @@ public class FilesManager {
 
     // Pobranie plików xml z okorojonej Listy nazw plików xml. W efekcie pobieramy tylko te pliki xml które są nam potrzebne do uzyskania wyniku
 
-    static List<File> getXmlFiles() throws Exception {
+    public List<File> getXmlFiles() throws Exception {
         ReadableByteChannel rbc;
         FileOutputStream xmlFos;
         List<File> xmlFiles = new ArrayList<>();
 
-        List<String> validXmlNames = FilesManager.trimDirTxt(InputManager.editedStartDate, InputManager.editedEndDate);
+        List<String> validXmlNames = trimDirTxt(inputManager.getEditedStartDate(), inputManager.getEditedEndDate());
         int filesNumber = validXmlNames.size();
 
         for (int i = 0; i < filesNumber; i++) {

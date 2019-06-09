@@ -1,21 +1,24 @@
 package pl.parser.nbp;
 
+import lombok.Data;
+
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+@Data
 public class InputManager {
 
-    static String currencyCode;
-    static int editedStartDate;
-    static int editedEndDate;
-    static int startYear;
-    static int endYear;
+    private String currencyCode;
+    private int editedStartDate;
+    private int editedEndDate;
+    private int startYear;
+    private int endYear;
 
     // Zabezpieczenie przed podaniem nieprawidłowego kodu waluty
 
-    static void initCode(String code) {
+    public void initCode(String code) {
         String inputCode = code;
 
         if (!inputCode.matches("USD|EUR|CHF|GBP")) {
@@ -27,7 +30,7 @@ public class InputManager {
 
     // Zabezpieczenie przed podaniem daty w niewsłaciwej postaci
 
-    static String inputDate(String date) {
+    public String inputDate(String date) {
         String inputDate = date;
         DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
         format.setLenient(false);
@@ -44,7 +47,7 @@ public class InputManager {
 
     // Edytowanie podanej daty do formatu który pozwoli, w dalszej części programu, łatwo odnajdować i pobierać odpowiedni pliki
 
-    static void initDates(String dateS, String dateK) throws Exception {
+    public void initDates(String dateS, String dateK) throws Exception {
         String startDate = inputDate(dateS);
         String endDate = inputDate(dateK);
         Date dateStart = new SimpleDateFormat("yyyy-MM-dd").parse(startDate);
