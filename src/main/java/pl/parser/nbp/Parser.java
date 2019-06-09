@@ -4,10 +4,8 @@ import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
 import java.io.File;
-import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 
 public class Parser {
 
@@ -44,10 +42,10 @@ public class Parser {
 
                     if (rateType.equals("Buy")) {
                         kurs = pozycja.getKurs_kupna();
-                    } else {
+                    } else if(rateType.equals("Sell")){
                         kurs = pozycja.getKurs_sprzedazy();
                     }
-                    rate += Parser.stringRateToDouble(kurs);
+                    rate += Utilities.stringRateToDouble(kurs);
                 }
             }
         }
@@ -56,9 +54,9 @@ public class Parser {
 
     // Policzenie odchylenia standardowego kursu sprzedaży, bądź kupna, dla danych w liście "ratesTables" i podanego kodu waluty
 
-    static double getRateStandardDeviation() throws Exception {
+    static double getRateStandardDeviation(String rateType) throws Exception {
         double tmp = 0.0;
-        double rateMean = getMeanRate("Sell");
+        double rateMean = getMeanRate(rateType);
         String stringKurs = null;
         double doubleKurs = 0;
 
@@ -67,20 +65,12 @@ public class Parser {
                 if (pozycja.getKod_waluty().equals(InputManager.currencyCode)) {
 
                     stringKurs = pozycja.getKurs_sprzedazy();
-                    doubleKurs = Parser.stringRateToDouble(stringKurs);
+                    doubleKurs = Utilities.stringRateToDouble(stringKurs);
                     tmp += Math.pow(doubleKurs - rateMean, 2);
                 }
             }
         }
         return Math.sqrt(tmp / ratesTables.size());
-    }
-
-    // Konwersja danych dotyczącyh kursów walut, ze String na Double (pliki xml zawierają dane o kursach oddzielając część dziesiętną przecinkiem)
-
-    static private double stringRateToDouble(String rate) throws Exception {
-        NumberFormat format = NumberFormat.getInstance(Locale.FRANCE);
-        Number number = format.parse(rate);
-        return number.doubleValue();
     }
 
 }

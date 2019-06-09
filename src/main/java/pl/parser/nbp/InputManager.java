@@ -19,7 +19,7 @@ public class InputManager {
         String inputCode = code;
 
         if (!inputCode.matches("USD|EUR|CHF|GBP")) {
-            System.out.println("Podano nieprawidłowy kod waluty");
+            System.out.println("Incorrect currency code");
             System.exit(0);
         }
         currencyCode = inputCode;
@@ -35,8 +35,8 @@ public class InputManager {
         try {
             format.parse(inputDate);
         } catch (ParseException e) {
-            System.out.println("Data: " + inputDate + " nie jest zgodna z wymaganym formatem: " +
-                    ((SimpleDateFormat) format).toPattern() + ", lub podano nieistniejącą datę");
+            System.out.println("Date: " + inputDate + " is not compatible with required foramt: " +
+                    ((SimpleDateFormat) format).toPattern() + ", or given date is incorrect");
             System.exit(0);
         }
         return inputDate;
@@ -51,7 +51,7 @@ public class InputManager {
         Date dateEnd = new SimpleDateFormat("yyyy-MM-dd").parse(endDate);
 
         if (dateEnd.before(dateStart)) {
-            System.out.println("Podana data końcowa jest wcześniejsza niż data początkowa");
+            System.out.println("Inputed end date is sooner than start date");
             System.exit(0);
         }
 
