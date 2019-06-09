@@ -1,4 +1,5 @@
-Program receives three command-line arguments.
+# NBP Data Parser
+###### Program receives three command-line arguments.
 
 First one is the currency code.
 The two next are starting and ending date of the measurement. 
