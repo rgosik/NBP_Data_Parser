@@ -8,3 +8,4 @@ The output consists of mean, buy or sell (console input), rate and buy or sell s
 These calculations can be performed on any currency provided by NBP. The earliest available data provided by NBP is from 2002 
 
 This program doesn't use NBP Web API 
+https://www.nbp.pl/home.aspx?f=/kursy/instrukcja_pobierania_kursow_walut.html
