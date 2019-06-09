@@ -13,7 +13,6 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @Data
-@ToString
 @NoArgsConstructor
 @AllArgsConstructor
 @XmlRootElement(name = "tabela_kursow")
