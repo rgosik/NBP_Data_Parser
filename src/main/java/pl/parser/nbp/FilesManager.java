@@ -27,9 +27,7 @@ public class FilesManager {
         int currentYear = Calendar.getInstance().get(Calendar.YEAR);
         List<String> dirTxt = new ArrayList<>();
         Set<URLConnection> connections = new HashSet<>();
-        //List<Integer> measuredYears = new ArrayList<>();
-
-        String finalDirTxt = null;
+        String finalDirTxt = "";
 
         IntStream intStreamYears = IntStream.rangeClosed(startYear, endYear);
         Stream<Integer> measuredYears = intStreamYears.boxed();
@@ -45,14 +43,6 @@ public class FilesManager {
                 log.error(ex);
             }
         });
-
-        /*for (int year : measuredYears) {
-            if (year == currentYear) {
-                connections.add(new URL("https://www.nbp.pl/kursy/xml/dir.txt").openConnection());
-            } else {
-                connections.add(new URL("https://www.nbp.pl/kursy/xml/dir" + year + ".txt").openConnection());
-            }
-        }*/
 
         for (URLConnection conn : connections) {
             dirTxt.add(new Scanner(conn.getInputStream()).
