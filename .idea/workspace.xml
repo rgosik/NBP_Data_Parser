@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bafc33d3-d165-460b-91c3-a67318fc7645" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/parser/nbp/MainClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/parser/nbp/MainClass.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/parser/nbp/Parser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/parser/nbp/Parser.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/pl/parser/nbp/Utilities.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/parser/nbp/Utilities.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -44,7 +42,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/pl/parser/nbp/InputManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
+            <state relative-caret-position="60">
               <caret line="22" column="64" lean-forward="true" selection-start-line="22" selection-start-column="64" selection-end-line="22" selection-end-column="64" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -68,8 +66,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/pl/parser/nbp/Utilities.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="185">
-              <caret line="63" column="13" lean-forward="true" selection-start-line="63" selection-start-column="13" selection-end-line="63" selection-end-column="13" />
+            <state relative-caret-position="155">
+              <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
             </state>
           </provider>
         </entry>
@@ -328,12 +326,12 @@
       <workItem from="1561807502439" duration="36000" />
       <workItem from="1561979385687" duration="1136000" />
       <workItem from="1561980555240" duration="32000" />
-      <workItem from="1561980611889" duration="7475000" />
+      <workItem from="1561980611889" duration="7656000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="76013000" />
+    <option name="totallyTimeSpent" value="76194000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="33" width="1550" height="838" extended-state="6" />
@@ -463,16 +461,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/pl/parser/nbp/InputManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="22" column="64" lean-forward="true" selection-start-line="22" selection-start-column="64" selection-end-line="22" selection-end-column="64" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/pl/parser/nbp/FilesManager.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="253">
@@ -503,10 +491,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/pl/parser/nbp/InputManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="22" column="64" lean-forward="true" selection-start-line="22" selection-start-column="64" selection-end-line="22" selection-end-column="64" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/pl/parser/nbp/Utilities.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="185">
-          <caret line="63" column="13" lean-forward="true" selection-start-line="63" selection-start-column="13" selection-end-line="63" selection-end-column="13" />
+        <state relative-caret-position="155">
+          <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
         </state>
       </provider>
     </entry>

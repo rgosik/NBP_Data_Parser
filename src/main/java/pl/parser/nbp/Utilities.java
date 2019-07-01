@@ -19,11 +19,7 @@ public class Utilities {
     }
 
     private static boolean isBuyOrSell(String rateType){
-        if(rateType.matches("Buy|Sell")){
-            return true;
-        } else {
-            return false;
-        }
+        return rateType.matches("Buy|Sell");
     }
 
     private static boolean isNotBuyOrSell(String rateType){
