@@ -10,6 +10,7 @@ import java.util.Scanner;
 public class Utilities {
     private static final Logger log = LogManager.getRootLogger();
     private static Scanner scanIn = new Scanner(System.in);
+
     // Konwersja danych dotyczącyh kursów walut, ze String na Double (pliki xml zawierają dane o kursach oddzielając część dziesiętną przecinkiem)
     static double stringRateToDouble(String rate) throws Exception {
         NumberFormat format = NumberFormat.getInstance(Locale.FRANCE);

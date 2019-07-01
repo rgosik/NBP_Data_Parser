@@ -1,6 +1,8 @@
 package pl.parser.nbp;
 
 
+import lombok.AllArgsConstructor;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -12,17 +14,14 @@ import java.nio.channels.Channels;
 import java.nio.channels.ReadableByteChannel;
 import java.util.*;
 
+@AllArgsConstructor
 public class FilesManager {
 
     InputManager inputManager;
 
-    public FilesManager(InputManager inputManager){
-        this.inputManager = inputManager;
-    }
-
     // Pobieranie danych z plików dir(rok).txt, ze strony nbp, które zawierają nazwy wszystkich plkiów xml z kursami, z podanych lat
 
-    public String getDirTxt(int startYear, int endYear) throws Exception {
+    private String getDirTxt(int startYear, int endYear) throws Exception {
         int currentYear = Calendar.getInstance().get(Calendar.YEAR);
         List<String> dirTxt = new ArrayList<>();
         List<Integer> measuredYears = new ArrayList<>();
@@ -58,7 +57,7 @@ public class FilesManager {
 
     // Okrojenie pobranego Stringa nazw plików xml to Listy zawierającej jedynie nazwy plików z podanego na wejściu przedziału czasowego
 
-    public List<String> trimDirTxt(int startDate, int endDate) throws Exception {
+    private List<String> trimDirTxt(int startDate, int endDate) throws Exception {
         String xmlName;
         List<String> validXmlNames = new ArrayList<>();
 
