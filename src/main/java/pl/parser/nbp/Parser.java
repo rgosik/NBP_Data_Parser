@@ -54,9 +54,9 @@ public class Parser {
             for (Position pozycja : ratesTable.getPozycja()) {
                 if (pozycja.getKod_waluty().equals(inputManager.getCurrencyCode())) {
 
-                    if (rateType.equals("Buy")) {
+                    if ("Buy".equals(rateType)) {
                         kurs = pozycja.getKurs_kupna();
-                    } else if(rateType.equals("Sell")){
+                    } else if("Sell".equals(rateType)){
                         kurs = pozycja.getKurs_sprzedazy();
                     }
                     rate += Utilities.stringRateToDouble(kurs);

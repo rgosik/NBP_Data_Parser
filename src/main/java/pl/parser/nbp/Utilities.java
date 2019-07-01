@@ -12,13 +12,13 @@ public class Utilities {
     private static Scanner scanIn = new Scanner(System.in);
 
     // Konwersja danych dotyczącyh kursów walut, ze String na Double (pliki xml zawierają dane o kursach oddzielając część dziesiętną przecinkiem)
-    static double stringRateToDouble(String rate) throws Exception {
+    public static double stringRateToDouble(String rate) throws Exception {
         NumberFormat format = NumberFormat.getInstance(Locale.FRANCE);
         Number number = format.parse(rate);
         return number.doubleValue();
     }
 
-    static boolean isBuyOrSell(String rateType){
+    private static boolean isBuyOrSell(String rateType){
         if(rateType.matches("Buy|Sell")){
             return true;
         } else {
@@ -26,11 +26,11 @@ public class Utilities {
         }
     }
 
-    static boolean isNotBuyOrSell(String rateType){
+    private static boolean isNotBuyOrSell(String rateType){
         return !isBuyOrSell(rateType);
     }
 
-    static double getMeanRateType(Parser parser) throws Exception{
+    public static double getMeanRateType(Parser parser) throws Exception{
         String meanRateType;
         Double meanRate = 0.0;
         log.info("Mean rate. Buy or Sell ?: ");
@@ -49,7 +49,7 @@ public class Utilities {
         return meanRate;
     }
 
-    static double getRateStandardDeviation(Parser parser) throws Exception{
+    public static double getRateStandardDeviation(Parser parser) throws Exception{
         String standardDeviationType;
         Double rateStandardDeviation = 0.0;
         log.info("Standarn deviation. Buy or Sell ?: ");
