@@ -13,6 +13,8 @@ import java.net.URLConnection;
 import java.nio.channels.Channels;
 import java.nio.channels.ReadableByteChannel;
 import java.util.*;
+import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 @AllArgsConstructor
 public class FilesManager {
@@ -23,22 +25,23 @@ public class FilesManager {
     private String getDirTxt(int startYear, int endYear) throws Exception {
         int currentYear = Calendar.getInstance().get(Calendar.YEAR);
         List<String> dirTxt = new ArrayList<>();
-        List<Integer> measuredYears = new ArrayList<>();
         Set<URLConnection> connections = new HashSet<>();
+        String finalDirTxt = "";
 
-        String finalDirTxt = null;
+        IntStream intStreamYears = IntStream.rangeClosed(startYear, endYear);
+        Stream<Integer> measuredYears = intStreamYears.boxed();
 
-        for (int i = startYear; i <= endYear; i++) {
-            measuredYears.add(i);
-        }
-
-        for (int year : measuredYears) {
-            if (year == currentYear) {
-                connections.add(new URL("https://www.nbp.pl/kursy/xml/dir.txt").openConnection());
-            } else {
-                connections.add(new URL("https://www.nbp.pl/kursy/xml/dir" + year + ".txt").openConnection());
+        measuredYears.forEach(x -> {
+            try {
+                if (x == currentYear) {
+                    connections.add(new URL("https://www.nbp.pl/kursy/xml/dir.txt").openConnection());
+                } else {
+                    connections.add(new URL("https://www.nbp.pl/kursy/xml/dir" + x + ".txt").openConnection());
+                }
+            } catch (Exception ex) {
+                throw new RuntimeException(ex);
             }
-        }
+        });
 
         for (URLConnection conn : connections) {
             dirTxt.add(new Scanner(conn.getInputStream()).
