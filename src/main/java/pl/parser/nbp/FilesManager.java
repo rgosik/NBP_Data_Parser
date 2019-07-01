@@ -16,8 +16,7 @@ import java.util.*;
 
 @AllArgsConstructor
 public class FilesManager {
-
-    InputManager inputManager;
+    private InputManager inputManager;
 
     // Pobieranie danych z plików dir(rok).txt, ze strony nbp, które zawierają nazwy wszystkich plkiów xml z kursami, z podanych lat
 

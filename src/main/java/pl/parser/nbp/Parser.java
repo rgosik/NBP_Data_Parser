@@ -1,6 +1,8 @@
 package pl.parser.nbp;
 
 import lombok.Data;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 import pl.parser.nbp.xmlmodel.Position;
 import pl.parser.nbp.xmlmodel.RatesTable;
 
@@ -13,9 +15,10 @@ import java.util.List;
 
 @Data
 public class Parser {
-
-    InputManager inputManager;
+    private static final Logger log = LogManager.getRootLogger();
     private List<RatesTable> ratesTables = new ArrayList<>();
+    private InputManager inputManager;
+
 
     public Parser(InputManager inputManager){
         this.inputManager = inputManager;
@@ -36,7 +39,7 @@ public class Parser {
                 ratesTables.add((RatesTable) jaxbUnmarshaller.unmarshal(xmlFile));
 
             } catch (JAXBException e) {
-                e.printStackTrace();
+                log.error("failed", e);
             }
         }
     }
