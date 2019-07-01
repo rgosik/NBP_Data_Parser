@@ -2,11 +2,11 @@ package pl.parser.nbp;
 
 
 import lombok.AllArgsConstructor;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.StringReader;
+import java.io.*;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
 
@@ -19,6 +19,7 @@ import java.util.stream.Stream;
 @AllArgsConstructor
 public class FilesManager {
     private InputManager inputManager;
+    private static final Logger log = LogManager.getRootLogger();
 
     // Pobieranie danych z plików dir(rok).txt, ze strony nbp, które zawierają nazwy wszystkich plkiów xml z kursami, z podanych lat
 
@@ -26,7 +27,9 @@ public class FilesManager {
         int currentYear = Calendar.getInstance().get(Calendar.YEAR);
         List<String> dirTxt = new ArrayList<>();
         Set<URLConnection> connections = new HashSet<>();
-        String finalDirTxt = "";
+        //List<Integer> measuredYears = new ArrayList<>();
+
+        String finalDirTxt = null;
 
         IntStream intStreamYears = IntStream.rangeClosed(startYear, endYear);
         Stream<Integer> measuredYears = intStreamYears.boxed();
@@ -38,10 +41,18 @@ public class FilesManager {
                 } else {
                     connections.add(new URL("https://www.nbp.pl/kursy/xml/dir" + x + ".txt").openConnection());
                 }
-            } catch (Exception ex) {
-                throw new RuntimeException(ex);
+            } catch (IOException ex) {
+                log.error(ex);
             }
         });
+
+        /*for (int year : measuredYears) {
+            if (year == currentYear) {
+                connections.add(new URL("https://www.nbp.pl/kursy/xml/dir.txt").openConnection());
+            } else {
+                connections.add(new URL("https://www.nbp.pl/kursy/xml/dir" + year + ".txt").openConnection());
+            }
+        }*/
 
         for (URLConnection conn : connections) {
             dirTxt.add(new Scanner(conn.getInputStream()).
