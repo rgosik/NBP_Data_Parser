@@ -1,5 +1,5 @@
 # NBP Data Parser
-### Program receives three command-line arguments.
+## Program receives three command-line arguments
 
 First one is the "currency code".
 The two other are, respectively, "starting date" and "ending date" of the data that progeam will download to perform its calculations. 
@@ -9,4 +9,4 @@ These calculations can be performed on any currency provided by NBP. The earlies
 
 This program doesn't use NBP Web API 
 
-https://www.nbp.pl/home.aspx?f=/kursy/instrukcja_pobierania_kursow_walut.html
+<https://www.nbp.pl/home.aspx?f=/kursy/instrukcja_pobierania_kursow_walut.html>

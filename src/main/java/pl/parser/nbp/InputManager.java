@@ -7,9 +7,13 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
+
+
 @Data
 public class InputManager {
-
+    private static final Logger log = LogManager.getRootLogger();
     private String currencyCode;
     private int editedStartDate;
     private int editedEndDate;
@@ -22,8 +26,8 @@ public class InputManager {
         String inputCode = code;
 
         if (!inputCode.matches("USD|EUR|CHF|GBP")) {
-            System.out.println("Incorrect currency code");
-            System.exit(0);
+            log.warn("Incorrect currency code");
+            initCode(code);
         }
         currencyCode = inputCode;
     }

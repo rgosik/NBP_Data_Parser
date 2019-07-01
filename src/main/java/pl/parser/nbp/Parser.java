@@ -1,8 +1,8 @@
 package pl.parser.nbp;
 
 import lombok.Data;
-import pl.parser.nbp.XMLModel.Position;
-import pl.parser.nbp.XMLModel.RatesTable;
+import pl.parser.nbp.xmlmodel.Position;
+import pl.parser.nbp.xmlmodel.RatesTable;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
