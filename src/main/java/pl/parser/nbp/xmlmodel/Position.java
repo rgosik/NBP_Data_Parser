@@ -22,5 +22,4 @@ public class Position implements Serializable {
     private String kod_waluty;
     private String kurs_kupna;
     private String kurs_sprzedazy;
-
 }

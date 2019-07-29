@@ -9,6 +9,7 @@ import java.text.DecimalFormat;
 public class MainClass {
 
     public static void main(String[] args) throws Exception {
+
         BasicConfigurator.configure();                                                      // Log4j configuration
         final Logger log = LogManager.getRootLogger();
 
@@ -19,10 +20,10 @@ public class MainClass {
 
         parser.unmarshalXmlFilesToObjects();
 
-        Double meanRate = Utilities.getMeanRateType(parser);
+        Double meanRate = Facade.getMeanRateType(parser);
         log.info(new DecimalFormat("#0.00000").format(meanRate));
 
-        Double rateStandardDeviation = Utilities.getRateStandardDeviation(parser);
+        Double rateStandardDeviation = Facade.getRateStandardDeviation(parser);
         log.info(new DecimalFormat("#0.00000").format(rateStandardDeviation));
     }
 }

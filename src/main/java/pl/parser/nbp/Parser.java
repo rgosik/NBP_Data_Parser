@@ -15,6 +15,7 @@ import java.util.List;
 
 @Data
 public class Parser {
+
     private static final Logger log = LogManager.getRootLogger();
     private List<RatesTable> ratesTables = new ArrayList<>();
     private InputManager inputManager;
@@ -47,7 +48,7 @@ public class Parser {
     // Policzenie średniej kursu sprzedaży, bądź kupna, dla danych w liście "ratesTables"
 
     public double getMeanRate(String rateType) throws Exception {
-        double rate = 0.0;
+        double rate = 0d;
         String kurs = null;
 
         for (RatesTable ratesTable : ratesTables) {
@@ -59,7 +60,7 @@ public class Parser {
                     } else if("Sell".equals(rateType)){
                         kurs = pozycja.getKurs_sprzedazy();
                     }
-                    rate += Utilities.stringRateToDouble(kurs);
+                    rate += Facade.commaStringToDouble(kurs);
                 }
             }
         }
@@ -69,17 +70,17 @@ public class Parser {
     // Policzenie odchylenia standardowego kursu sprzedaży, bądź kupna, dla danych w liście "ratesTables" i podanego kodu waluty
 
     public double getRateStandardDeviation(String rateType) throws Exception {
-        double tmp = 0.0;
+        double tmp = 0d;
         double rateMean = getMeanRate(rateType);
-        String stringKurs = null;
-        double doubleKurs = 0;
+        String stringKurs;
+        double doubleKurs;
 
         for (RatesTable ratesTable : ratesTables) {
             for (Position pozycja : ratesTable.getPozycja()) {
                 if (pozycja.getKod_waluty().equals(inputManager.getCurrencyCode())) {
 
                     stringKurs = pozycja.getKurs_sprzedazy();
-                    doubleKurs = Utilities.stringRateToDouble(stringKurs);
+                    doubleKurs = Facade.commaStringToDouble(stringKurs);
                     tmp += Math.pow(doubleKurs - rateMean, 2);
                 }
             }

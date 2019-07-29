@@ -13,6 +13,7 @@ import org.apache.log4j.Logger;
 
 @Data
 public class InputManager {
+
     private static final Logger log = LogManager.getRootLogger();
     private String currencyCode;
     private int editedStartDate;

@@ -22,5 +22,4 @@ public class RatesTable implements Serializable {
     private Date data_notowania;
     private Date data_publikacji;
     private List<Position> pozycja;
-
 }

@@ -7,12 +7,13 @@ import java.text.NumberFormat;
 import java.util.Locale;
 import java.util.Scanner;
 
-public class Utilities {
+public class Facade {
+
     private static final Logger log = LogManager.getRootLogger();
     private static Scanner scanIn = new Scanner(System.in);
 
     // Konwersja danych dotyczącyh kursów walut, ze String na Double (pliki xml zawierają dane o kursach oddzielając część dziesiętną przecinkiem)
-    public static double stringRateToDouble(String rate) throws Exception {
+    public static double commaStringToDouble(String rate) throws Exception {
         NumberFormat format = NumberFormat.getInstance(Locale.FRANCE);
         Number number = format.parse(rate);
         return number.doubleValue();
@@ -28,7 +29,7 @@ public class Utilities {
 
     public static double getMeanRateType(Parser parser) throws Exception{
         String meanRateType;
-        Double meanRate = 0.0;
+        Double meanRate;
         log.info("Mean rate. Buy or Sell ?: ");
 
         while(true){
@@ -47,7 +48,7 @@ public class Utilities {
 
     public static double getRateStandardDeviation(Parser parser) throws Exception{
         String standardDeviationType;
-        Double rateStandardDeviation = 0.0;
+        Double rateStandardDeviation;
         log.info("Standarn deviation. Buy or Sell ?: ");
 
         while(true){

@@ -6,7 +6,6 @@ import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
 import java.io.*;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
 
@@ -18,6 +17,7 @@ import java.util.stream.Stream;
 
 @AllArgsConstructor
 public class FilesManager {
+
     private InputManager inputManager;
     private static final Logger log = LogManager.getRootLogger();
 
@@ -70,7 +70,7 @@ public class FilesManager {
         while ((xmlName = bufReader.readLine()) != null) {
             if (xmlName.charAt(0) == 'c') {
                 int date = Integer.parseInt(xmlName.substring(xmlName.length() - 6));
-                if (date >= startDate && date <= endDate) {
+                if ((date >= startDate) && (date <= endDate)) {
                     validXmlNames.add(xmlName);
                 }
             }
