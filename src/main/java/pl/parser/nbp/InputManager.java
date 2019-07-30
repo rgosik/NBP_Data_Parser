@@ -47,11 +47,7 @@ public class InputManager {
         Date dateStart = new SimpleDateFormat("yyyy-MM-dd").parse(startDate);
         Date dateEnd = new SimpleDateFormat("yyyy-MM-dd").parse(endDate);
 
-        if (dateStart.before(dateEnd)) {
-            return true;
-        } else {
-            return false;
-        }
+        return dateStart.before(dateEnd);
     }
 
     // Edytowanie podanej daty do formatu który pozwoli, w dalszej części programu, łatwo odnajdywać i pobierać odpowiedni pliki
