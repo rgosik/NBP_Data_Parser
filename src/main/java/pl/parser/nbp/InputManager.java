@@ -21,9 +21,15 @@ public class InputManager {
     private int startYear;
     private int endYear;
 
+    public InputManager(String currencyCode, String startDate, String endDate) throws Exception{
+
+        initCode(currencyCode);
+        initDates(startDate, endDate);
+    }
+
     // Zabezpieczenie przed podaniem nieprawidłowego kodu waluty
 
-    public void initCode(String code) {
+    private void initCode(String code) {
         String inputCode = code;
 
         if (!inputCode.matches("USD|EUR|CHF|GBP")) {
@@ -33,26 +39,9 @@ public class InputManager {
         currencyCode = inputCode;
     }
 
-    // Zabezpieczenie przed podaniem daty w niewsłaciwej postaci
-
-    public String inputDate(String date) {
-        String inputDate = date;
-        DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-        format.setLenient(false);
-
-        try {
-            format.parse(inputDate);
-        } catch (ParseException e) {
-            log.error("Date: " + inputDate + " is not compatible with required foramt: " +
-                    ((SimpleDateFormat) format).toPattern() + ", or given date is incorrect");
-            System.exit(0);
-        }
-        return inputDate;
-    }
-
     // Edytowanie podanej daty do formatu który pozwoli, w dalszej części programu, łatwo odnajdować i pobierać odpowiedni pliki
 
-    public void initDates(String dateS, String dateK) throws Exception {
+    private void initDates(String dateS, String dateK) throws Exception {
         String startDate = inputDate(dateS);
         String endDate = inputDate(dateK);
         Date dateStart = new SimpleDateFormat("yyyy-MM-dd").parse(startDate);
@@ -67,6 +56,22 @@ public class InputManager {
         editedEndDate = Integer.parseInt(endDate.replaceAll("[^a-zA-Z0-9]", "").substring(2));
         startYear = Integer.parseInt(dateS.substring(0, 4));
         endYear = Integer.parseInt(dateK.substring(0, 4));
+    }
+
+    // Zabezpieczenie przed podaniem daty w niewsłaciwej postaci
+
+    private String inputDate(String date) {
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+        format.setLenient(false);
+
+        try {
+            format.parse(date);
+        } catch (ParseException e) {
+            log.error("Date: " + date + " is not compatible with required foramt: " +
+                    (format).toPattern() + ", or given date is incorrect");
+            System.exit(0);
+        }
+        return date;
     }
 
 }
