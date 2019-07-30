@@ -20,7 +20,6 @@ public class Parser {
     private List<RatesTable> ratesTables = new ArrayList<>();
     private InputManager inputManager;
 
-
     public Parser(InputManager inputManager){
         this.inputManager = inputManager;
     }

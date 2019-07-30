@@ -23,20 +23,13 @@ public class InputManager {
 
     public InputManager(String currencyCode, String startDate, String endDate) throws Exception{
 
-        initCode(currencyCode);
-        initDates(startDate, endDate);
-    }
-
-    // Zabezpieczenie przed podaniem nieprawidłowego kodu waluty
-
-    private void initCode(String code) {
-        String inputCode = code;
-
-        if (!inputCode.matches("USD|EUR|CHF|GBP")) {
+        if (!currencyCode.matches("USD|EUR|CHF|GBP")) {
             log.error("Incorrect currency code");
             System.exit(0);
         }
-        currencyCode = inputCode;
+        this.currencyCode = currencyCode;
+
+        initDates(startDate, endDate);
     }
 
     // Edytowanie podanej daty do formatu który pozwoli, w dalszej części programu, łatwo odnajdować i pobierać odpowiedni pliki
