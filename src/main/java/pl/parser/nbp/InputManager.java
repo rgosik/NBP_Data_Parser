@@ -2,7 +2,6 @@ package pl.parser.nbp;
 
 import lombok.Data;
 
-import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -27,33 +26,37 @@ public class InputManager {
             log.error("Incorrect currency code");
             System.exit(0);
         }
+
         this.currencyCode = currencyCode;
 
-        initDates(startDate, endDate);
-    }
-
-    // Edytowanie podanej daty do formatu który pozwoli, w dalszej części programu, łatwo odnajdować i pobierać odpowiedni pliki
-
-    private void initDates(String dateS, String dateK) throws Exception {
-        String startDate = inputDate(dateS);
-        String endDate = inputDate(dateK);
-        Date dateStart = new SimpleDateFormat("yyyy-MM-dd").parse(startDate);
-        Date dateEnd = new SimpleDateFormat("yyyy-MM-dd").parse(endDate);
-
-        if (dateEnd.before(dateStart)) {
-            log.info("Inputed end date is sooner than start date");
+        if(datesAreCorrect(startDate, endDate)) {
+            this.editedStartDate = Integer.parseInt(editDate(startDate).replaceAll("[^a-zA-Z0-9]", "").substring(2));
+            this.editedEndDate = Integer.parseInt(editDate(endDate).replaceAll("[^a-zA-Z0-9]", "").substring(2));
+            this.startYear = Integer.parseInt(startDate.substring(0, 4));
+            this.endYear = Integer.parseInt(endDate.substring(0, 4));
+        } else {
+            log.error("Input end date is sooner than start date");
             System.exit(0);
         }
 
-        editedStartDate = Integer.parseInt(startDate.replaceAll("[^a-zA-Z0-9]", "").substring(2));
-        editedEndDate = Integer.parseInt(endDate.replaceAll("[^a-zA-Z0-9]", "").substring(2));
-        startYear = Integer.parseInt(dateS.substring(0, 4));
-        endYear = Integer.parseInt(dateK.substring(0, 4));
     }
 
     // Zabezpieczenie przed podaniem daty w niewsłaciwej postaci
 
-    private String inputDate(String date) {
+    private boolean datesAreCorrect(String startDate, String endDate) throws Exception {
+        Date dateStart = new SimpleDateFormat("yyyy-MM-dd").parse(startDate);
+        Date dateEnd = new SimpleDateFormat("yyyy-MM-dd").parse(endDate);
+
+        if (dateStart.before(dateEnd)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    // Edytowanie podanej daty do formatu który pozwoli, w dalszej części programu, łatwo odnajdywać i pobierać odpowiedni pliki
+
+    private String editDate(String date) {
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
         format.setLenient(false);
 
