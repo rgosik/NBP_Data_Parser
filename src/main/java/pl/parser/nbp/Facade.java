@@ -23,22 +23,17 @@ public class Facade {
         return rateType.matches("Buy|Sell");
     }
 
-    private static boolean isNotBuyOrSell(String rateType){
-        return !isBuyOrSell(rateType);
-    }
-
     public static double getMeanRateType(Parser parser) throws Exception{
         String meanRateType;
-        Double meanRate;
+        double meanRate;
         log.info("Mean rate. Buy or Sell ?: ");
 
         while(true){
             meanRateType = scanIn.nextLine();
-            if(isNotBuyOrSell(meanRateType)){
-                log.info("Incorrect input\nCorrect: \"Buy\" or \"Sell\"\nTry again");
-                continue;
-            } else {
+            if(isBuyOrSell(meanRateType)){
                 break;
+            } else {
+                log.info("Incorrect input\nCorrect: \"Buy\" or \"Sell\"\nTry again");
             }
         }
 
@@ -48,16 +43,15 @@ public class Facade {
 
     public static double getRateStandardDeviation(Parser parser) throws Exception{
         String standardDeviationType;
-        Double rateStandardDeviation;
+        double rateStandardDeviation;
         log.info("Standarn deviation. Buy or Sell ?: ");
 
         while(true){
             standardDeviationType = scanIn.nextLine();
-            if(isNotBuyOrSell(standardDeviationType)){
-                log.info("Incorrect input\nCorrect: \"Buy\" or \"Sell\"\nTry again");
-                continue;
-            } else {
+            if(isBuyOrSell(standardDeviationType)){
                 break;
+            } else {
+                log.info("Incorrect input\nCorrect: \"Buy\" or \"Sell\"\nTry again");
             }
         }
 
