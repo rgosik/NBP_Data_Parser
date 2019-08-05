@@ -23,7 +23,7 @@ public class Facade {
         return rateType.matches("Buy|Sell");
     }
 
-    public static double getMeanRateType(Parser parser) throws Exception{
+    public static double getMeanRateType(Parser parser, String currencyCode) throws Exception{
         String meanRateType;
         double meanRate;
         log.info("Mean rate. Buy or Sell ?: ");
@@ -37,11 +37,11 @@ public class Facade {
             }
         }
 
-        meanRate = parser.getMeanRate(meanRateType);
+        meanRate = parser.calculateMeanRate(meanRateType, currencyCode);
         return meanRate;
     }
 
-    public static double getRateStandardDeviation(Parser parser) throws Exception{
+    public static double getRateStandardDeviation(Parser parser, String currencyCode) throws Exception{
         String standardDeviationType;
         double rateStandardDeviation;
         log.info("Standarn deviation. Buy or Sell ?: ");
@@ -55,7 +55,7 @@ public class Facade {
             }
         }
 
-        rateStandardDeviation = parser.getRateStandardDeviation(standardDeviationType);
+        rateStandardDeviation = parser.calculateRateStandardDeviation(standardDeviationType, currencyCode);
         return rateStandardDeviation;
     }
 

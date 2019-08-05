@@ -30,8 +30,8 @@ public class InputManager {
         this.currencyCode = currencyCode;
 
         if(datesAreCorrect(startDate, endDate)) {
-            this.editedStartDate = Integer.parseInt(editDate(startDate).replaceAll("[^a-zA-Z0-9]", "").substring(2));
-            this.editedEndDate = Integer.parseInt(editDate(endDate).replaceAll("[^a-zA-Z0-9]", "").substring(2));
+            this.editedStartDate = Integer.parseInt(formatDate(startDate).replaceAll("[^a-zA-Z0-9]", "").substring(2));
+            this.editedEndDate = Integer.parseInt(formatDate(endDate).replaceAll("[^a-zA-Z0-9]", "").substring(2));
             this.startYear = Integer.parseInt(startDate.substring(0, 4));
             this.endYear = Integer.parseInt(endDate.substring(0, 4));
         } else {
@@ -50,9 +50,9 @@ public class InputManager {
         return dateStart.before(dateEnd);
     }
 
-    // Edytowanie podanej daty do formatu który pozwoli, w dalszej części programu, łatwo odnajdywać i pobierać odpowiedni pliki
+    // Formatowanie podanej daty do formatu który pozwoli, w dalszej części programu, łatwo odnajdywać i pobierać odpowiedni pliki
 
-    private String editDate(String date) {
+    private String formatDate(String date) {
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
         format.setLenient(false);
 

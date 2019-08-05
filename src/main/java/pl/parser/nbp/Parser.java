@@ -18,18 +18,11 @@ public class Parser {
 
     private static final Logger log = LogManager.getRootLogger();
     private List<RatesTable> ratesTables = new ArrayList<>();
-    private InputManager inputManager;
-
-    public Parser(InputManager inputManager){
-        this.inputManager = inputManager;
-    }
 
     // Parsowanie danych z plików XML do listy "ratesTables"
 
-    public void unmarshalXmlFilesToObjects() throws Exception {
+    public void unmarshalXmlFilesToObjects(List<File> xmlFiles) throws Exception {
         JAXBContext jaxbContext;
-        FilesManager filesManager = new FilesManager(inputManager);
-        List<File> xmlFiles = filesManager.getXmlFiles();
 
         for (File xmlFile : xmlFiles) {
             try {
@@ -46,13 +39,13 @@ public class Parser {
 
     // Policzenie średniej kursu sprzedaży, bądź kupna, dla danych w liście "ratesTables"
 
-    public double getMeanRate(String rateType) throws Exception {
+    public double calculateMeanRate(String rateType, String currencyCode) throws Exception {
         double rate = 0d;
         String kurs = null;
 
         for (RatesTable ratesTable : ratesTables) {
             for (Position pozycja : ratesTable.getPozycja()) {
-                if (pozycja.getKod_waluty().equals(inputManager.getCurrencyCode())) {
+                if (pozycja.getKod_waluty().equals(currencyCode)) {
 
                     if ("Buy".equals(rateType)) {
                         kurs = pozycja.getKurs_kupna();
@@ -68,15 +61,15 @@ public class Parser {
 
     // Policzenie odchylenia standardowego kursu sprzedaży, bądź kupna, dla danych w liście "ratesTables" i podanego kodu waluty
 
-    public double getRateStandardDeviation(String rateType) throws Exception {
+    public double calculateRateStandardDeviation(String rateType, String currencyCode) throws Exception {
         double tmp = 0d;
-        double rateMean = getMeanRate(rateType);
+        double rateMean = calculateMeanRate(rateType, currencyCode);
         String stringKurs;
         double doubleKurs;
 
         for (RatesTable ratesTable : ratesTables) {
             for (Position pozycja : ratesTable.getPozycja()) {
-                if (pozycja.getKod_waluty().equals(inputManager.getCurrencyCode())) {
+                if (pozycja.getKod_waluty().equals(currencyCode)) {
 
                     stringKurs = pozycja.getKurs_sprzedazy();
                     doubleKurs = Facade.commaStringToDouble(stringKurs);
