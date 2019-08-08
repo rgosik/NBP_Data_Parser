@@ -16,15 +16,17 @@ public class MainClass {
         final Logger log = LogManager.getRootLogger();
         InputManager inputManager = new InputManager(args[0],args[1],args[2]);
         FilesManager filesManager = new FilesManager(inputManager);
-        Parser parser = new Parser();
+        Parser parser = new Parser(inputManager.getCurrencyCode());
 
         List<File> xmlFiles = filesManager.getXmlFiles();
         parser.unmarshalXmlFilesToObjects(xmlFiles);
 
-        Double meanRate = Facade.getMeanRateType(parser, inputManager.getCurrencyCode());
+        log.info("Mean Rate");
+        Double meanRate = parser.getMeanRate();
         log.info(new DecimalFormat("#0.00000").format(meanRate));
 
-        Double rateStandardDeviation = Facade.getRateStandardDeviation(parser, inputManager.getCurrencyCode());
+        log.info("Standard Deviation");
+        Double rateStandardDeviation = parser.getStandardDeviation();
         log.info(new DecimalFormat("#0.00000").format(rateStandardDeviation));
     }
 }

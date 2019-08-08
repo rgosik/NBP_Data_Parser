@@ -18,6 +18,11 @@ public class Parser {
 
     private static final Logger log = LogManager.getRootLogger();
     private List<RatesTable> ratesTables = new ArrayList<>();
+    private String currencyCode;
+
+    public Parser(String currencyCode){
+        this.currencyCode = currencyCode;
+    }
 
     // Parsowanie danych z plików XML do listy "ratesTables"
 
@@ -39,9 +44,10 @@ public class Parser {
 
     // Policzenie średniej kursu sprzedaży, bądź kupna, dla danych w liście "ratesTables"
 
-    public double calculateMeanRate(String rateType, String currencyCode) throws Exception {
+    public double getMeanRate() throws Exception {
         double rate = 0d;
         String kurs = null;
+        String rateType = Facade.geRateType();
 
         for (RatesTable ratesTable : ratesTables) {
             for (Position pozycja : ratesTable.getPozycja()) {
@@ -61,9 +67,9 @@ public class Parser {
 
     // Policzenie odchylenia standardowego kursu sprzedaży, bądź kupna, dla danych w liście "ratesTables" i podanego kodu waluty
 
-    public double calculateRateStandardDeviation(String rateType, String currencyCode) throws Exception {
+    public double getStandardDeviation() throws Exception {
         double tmp = 0d;
-        double rateMean = calculateMeanRate(rateType, currencyCode);
+        double rateMean = getMeanRate();
         String stringKurs;
         double doubleKurs;
 

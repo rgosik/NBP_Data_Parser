@@ -13,6 +13,7 @@ public class Facade {
     private static Scanner scanIn = new Scanner(System.in);
 
     // Konwersja danych dotyczącyh kursów walut, ze String na Double (pliki xml zawierają dane o kursach oddzielając część dziesiętną przecinkiem)
+
     public static double commaStringToDouble(String rate) throws Exception {
         NumberFormat format = NumberFormat.getInstance(Locale.FRANCE);
         Number number = format.parse(rate);
@@ -23,40 +24,19 @@ public class Facade {
         return rateType.matches("Buy|Sell");
     }
 
-    public static double getMeanRateType(Parser parser, String currencyCode) throws Exception{
-        String meanRateType;
-        double meanRate;
-        log.info("Mean rate. Buy or Sell ?: ");
+    public static String geRateType() {
+        String rateType;
+        log.info("Buy or Sell ?: ");
 
         while(true){
-            meanRateType = scanIn.nextLine();
-            if(isBuyOrSell(meanRateType)){
+            rateType = scanIn.nextLine();
+            if(isBuyOrSell(rateType)){
                 break;
             } else {
                 log.info("Incorrect input\nCorrect: \"Buy\" or \"Sell\"\nTry again");
             }
         }
-
-        meanRate = parser.calculateMeanRate(meanRateType, currencyCode);
-        return meanRate;
-    }
-
-    public static double getRateStandardDeviation(Parser parser, String currencyCode) throws Exception{
-        String standardDeviationType;
-        double rateStandardDeviation;
-        log.info("Standarn deviation. Buy or Sell ?: ");
-
-        while(true){
-            standardDeviationType = scanIn.nextLine();
-            if(isBuyOrSell(standardDeviationType)){
-                break;
-            } else {
-                log.info("Incorrect input\nCorrect: \"Buy\" or \"Sell\"\nTry again");
-            }
-        }
-
-        rateStandardDeviation = parser.calculateRateStandardDeviation(standardDeviationType, currencyCode);
-        return rateStandardDeviation;
+        return rateType;
     }
 
 }
