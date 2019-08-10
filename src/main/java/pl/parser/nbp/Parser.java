@@ -26,7 +26,7 @@ public class Parser {
 
     // Parsowanie danych z plików XML do listy "ratesTables"
 
-    public void unmarshalXmlFilesToObjects(List<File> xmlFiles) throws Exception {
+    public void unmarshalXmlFilesToObjects(List<File> xmlFiles) {
         JAXBContext jaxbContext;
 
         for (File xmlFile : xmlFiles) {
@@ -47,7 +47,7 @@ public class Parser {
     public double getMeanRate() throws Exception {
         double rate = 0d;
         String kurs = null;
-        String rateType = Facade.geRateType();
+        String rateType = Util.geRateType();
 
         for (RatesTable ratesTable : ratesTables) {
             for (Position pozycja : ratesTable.getPozycja()) {
@@ -58,7 +58,7 @@ public class Parser {
                     } else if("Sell".equals(rateType)){
                         kurs = pozycja.getKurs_sprzedazy();
                     }
-                    rate += Facade.commaStringToDouble(kurs);
+                    rate += Util.commaStringToDouble(kurs);
                 }
             }
         }
@@ -78,12 +78,11 @@ public class Parser {
                 if (pozycja.getKod_waluty().equals(currencyCode)) {
 
                     stringKurs = pozycja.getKurs_sprzedazy();
-                    doubleKurs = Facade.commaStringToDouble(stringKurs);
+                    doubleKurs = Util.commaStringToDouble(stringKurs);
                     tmp += Math.pow(doubleKurs - rateMean, 2);
                 }
             }
         }
         return Math.sqrt(tmp / ratesTables.size());
     }
-
 }

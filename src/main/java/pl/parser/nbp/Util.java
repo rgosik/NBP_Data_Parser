@@ -7,7 +7,7 @@ import java.text.NumberFormat;
 import java.util.Locale;
 import java.util.Scanner;
 
-public class Facade {
+public class Util {
 
     private static final Logger log = LogManager.getRootLogger();
     private static Scanner scanIn = new Scanner(System.in);
