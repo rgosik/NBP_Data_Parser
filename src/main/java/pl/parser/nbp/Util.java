@@ -26,14 +26,13 @@ public class Util {
 
     public static String geRateType() {
         String rateType;
-        log.info("Buy or Sell ?: ");
 
         while(true){
             rateType = scanIn.nextLine();
             if(isBuyOrSell(rateType)){
                 break;
             } else {
-                log.info("Incorrect input\nCorrect: \"Buy\" or \"Sell\"\nTry again");
+                log.info("Incorrect input\nCorrect ones are \"Buy\" or \"Sell\"\nTry again");
             }
         }
         return rateType;

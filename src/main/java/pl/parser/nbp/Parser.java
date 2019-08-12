@@ -26,7 +26,7 @@ public class Parser {
 
     // Parsowanie danych z plików XML do listy "ratesTables"
 
-    public void unmarshalXmlFilesToObjects(List<File> xmlFiles) {
+    public boolean unmarshalXmlFilesToObjects(List<File> xmlFiles) {
         JAXBContext jaxbContext;
 
         for (File xmlFile : xmlFiles) {
@@ -38,8 +38,11 @@ public class Parser {
 
             } catch (JAXBException e) {
                 log.error("failed", e);
+                return false;
             }
         }
+
+        return true;
     }
 
     // Policzenie średniej kursu sprzedaży, bądź kupna, dla danych w liście "ratesTables"

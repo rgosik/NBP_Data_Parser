@@ -19,14 +19,18 @@ public class MainClass {
         Parser parser = new Parser(inputManager.getCurrencyCode());
 
         List<File> xmlFiles = filesManager.getXmlFiles();
-        parser.unmarshalXmlFilesToObjects(xmlFiles);
 
-        log.info("Mean Rate");
-        Double meanRate = parser.getMeanRate();
-        log.info(new DecimalFormat("#0.00000").format(meanRate));
+        if(parser.unmarshalXmlFilesToObjects(xmlFiles)) {
 
-        log.info("Standard Deviation");
-        Double rateStandardDeviation = parser.getStandardDeviation();
-        log.info(new DecimalFormat("#0.00000").format(rateStandardDeviation));
+            log.info("Mean Rate, Buy or Sell ?: ");
+            Double meanRate = parser.getMeanRate();
+            log.info(new DecimalFormat("#0.00000").format(meanRate));
+
+            log.info("Standard Deviation, Buy or Sell ?: ");
+            Double rateStandardDeviation = parser.getStandardDeviation();
+            log.info(new DecimalFormat("#0.00000").format(rateStandardDeviation));
+        } else {
+            log.error("Failed to unmarshal the data");
+        }
     }
 }
