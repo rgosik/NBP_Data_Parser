@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="bafc33d3-d165-460b-91c3-a67318fc7645" name="Default" comment="minor code logic changes">
+    <list default="true" id="bafc33d3-d165-460b-91c3-a67318fc7645" name="Default" comment="minor main changes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/pl/parser/nbp/Facade.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/pl/parser/nbp/MainClass.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pl/parser/nbp/MainClass.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/pl/parser/nbp/Parser.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pl/parser/nbp/Parser.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -23,7 +20,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/pl/parser/nbp/InputManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
+            <state relative-caret-position="135">
               <caret line="16" column="17" selection-start-line="16" selection-start-column="17" selection-end-line="16" selection-end-column="17" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -35,7 +32,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/pl/parser/nbp/Parser.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
+            <state relative-caret-position="525">
               <caret line="46" selection-start-line="46" selection-end-line="46" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -47,8 +44,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/pl/parser/nbp/MainClass.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="10" column="24" lean-forward="true" selection-start-line="10" selection-start-column="24" selection-end-line="10" selection-end-column="24" />
+            <state relative-caret-position="180">
+              <caret line="12" column="61" selection-start-line="12" selection-start-column="61" selection-end-line="12" selection-end-column="61" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -95,7 +92,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/pl/parser/nbp/FilesManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
+            <state relative-caret-position="120">
               <caret line="20" column="31" selection-start-line="20" selection-start-column="31" selection-end-line="20" selection-end-column="31" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -179,8 +176,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -227,6 +222,8 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -348,7 +345,8 @@
       <workItem from="1565606176783" duration="3124000" />
       <workItem from="1565690235861" duration="921000" />
       <workItem from="1565696716023" duration="1247000" />
-      <workItem from="1565702140375" duration="652000" />
+      <workItem from="1565702140375" duration="702000" />
+      <workItem from="1565778133684" duration="218000" />
     </task>
     <task id="LOCAL-00001" summary="exception throws clean up">
       <created>1565432426487</created>
@@ -364,17 +362,23 @@
       <option name="project" value="LOCAL" />
       <updated>1565615760486</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="minor main changes">
+      <created>1565713484398</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1565713484398</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="111253000" />
+    <option name="totallyTimeSpent" value="111521000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="33" width="1550" height="838" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49788135" visible="true" weight="0.22483222" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49788135" visible="true" weight="0.22818792" />
       <window_info id="Structure" order="1" sideWeight="0.50211865" side_tool="true" weight="0.18657719" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -449,7 +453,8 @@
     <MESSAGE value="class naming changes" />
     <MESSAGE value="exception throws clean up" />
     <MESSAGE value="minor code logic changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="minor code logic changes" />
+    <MESSAGE value="minor main changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="minor main changes" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/main/java/pl/parser/nbp/MainClass.class" />
@@ -518,6 +523,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/pl/parser/nbp/InputManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="16" column="17" selection-start-line="16" selection-start-column="17" selection-end-line="16" selection-end-column="17" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/pl/parser/nbp/Parser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="46" selection-start-line="46" selection-end-line="46" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/pl/parser/nbp/Util.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
@@ -548,29 +573,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/pl/parser/nbp/Parser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="46" selection-start-line="46" selection-end-line="46" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/pl/parser/nbp/InputManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="16" column="17" selection-start-line="16" selection-start-column="17" selection-end-line="16" selection-end-column="17" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/pl/parser/nbp/FilesManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
+        <state relative-caret-position="120">
           <caret line="20" column="31" selection-start-line="20" selection-start-column="31" selection-end-line="20" selection-end-column="31" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -580,8 +585,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/pl/parser/nbp/MainClass.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="24" lean-forward="true" selection-start-line="10" selection-start-column="24" selection-end-line="10" selection-end-column="24" />
+        <state relative-caret-position="180">
+          <caret line="12" column="61" selection-start-line="12" selection-start-column="61" selection-end-line="12" selection-end-column="61" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
