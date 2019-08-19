@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.com/rgosik/NBP_Data_Parser.svg?branch=master)](https://travis-ci.com/rgosik/NBP_Data_Parser)
 # NBP Data Parser
 ## Program receives three command-line arguments
 
