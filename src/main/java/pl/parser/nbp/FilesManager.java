@@ -1,7 +1,5 @@
 package pl.parser.nbp;
 
-
-import lombok.AllArgsConstructor;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
@@ -15,11 +13,14 @@ import java.util.*;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
-@AllArgsConstructor
 public class FilesManager {
 
     private InputManager inputManager;
     private static final Logger log = LogManager.getRootLogger();
+
+    public FilesManager(InputManager inputManager){
+        this.inputManager = inputManager;
+    }
 
     // Pobieranie danych z plików dir(rok).txt, ze strony nbp, które zawierają nazwy wszystkich plkiów xml z kursami, z podanych lat
 

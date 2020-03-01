@@ -7,24 +7,27 @@ import java.text.NumberFormat;
 import java.util.Locale;
 import java.util.Scanner;
 
-public final class Util {
+public class ParserUtilImpl implements ParserUtil{
 
     private static final Logger log = LogManager.getRootLogger();
     private static Scanner scanIn = new Scanner(System.in);
 
     // Konwersja danych dotyczącyh kursów walut, ze String na Double (pliki xml zawierają dane o kursach oddzielając część dziesiętną przecinkiem)
 
-    public static double commaStringToDouble(String rate) throws Exception {
+    @Override
+    public double commaStringToDouble(String rate) throws Exception {
         NumberFormat format = NumberFormat.getInstance(Locale.FRANCE);
         Number number = format.parse(rate);
         return number.doubleValue();
     }
 
-    private static boolean isBuyOrSell(String rateType){
+    @Override
+    public boolean isBuyOrSell(String rateType){
         return rateType.matches("Buy|Sell");
     }
 
-    public static String geRateType() {
+    @Override
+    public String geRateType() {
         String rateType;
 
         while(true){

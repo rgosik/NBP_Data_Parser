@@ -1,6 +1,5 @@
 package pl.parser.nbp;
 
-import lombok.Data;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import pl.parser.nbp.xmlmodel.Position;
@@ -13,15 +12,16 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-@Data
 public class Parser {
 
     private static final Logger log = LogManager.getRootLogger();
+    private ParserUtil parserUtil;
     private List<RatesTable> ratesTables = new ArrayList<>();
     private String currencyCode;
 
-    public Parser(String currencyCode){
+    public Parser(String currencyCode, ParserUtil parserUtil){
         this.currencyCode = currencyCode;
+        this.parserUtil = parserUtil;
     }
 
     // Parsowanie danych z plików XML do listy "ratesTables"
@@ -50,7 +50,7 @@ public class Parser {
     public double getMeanRate() throws Exception {
         double rate = 0d;
         String kurs = null;
-        String rateType = Util.geRateType();
+        String rateType = parserUtil.geRateType();
 
         for (RatesTable ratesTable : ratesTables) {
             for (Position pozycja : ratesTable.getPozycja()) {
@@ -61,7 +61,7 @@ public class Parser {
                     } else if("Sell".equals(rateType)){
                         kurs = pozycja.getKurs_sprzedazy();
                     }
-                    rate += Util.commaStringToDouble(kurs);
+                    rate += parserUtil.commaStringToDouble(kurs);
                 }
             }
         }
@@ -81,11 +81,12 @@ public class Parser {
                 if (pozycja.getKod_waluty().equals(currencyCode)) {
 
                     stringKurs = pozycja.getKurs_sprzedazy();
-                    doubleKurs = Util.commaStringToDouble(stringKurs);
+                    doubleKurs = parserUtil.commaStringToDouble(stringKurs);
                     tmp += Math.pow(doubleKurs - rateMean, 2);
                 }
             }
         }
         return Math.sqrt(tmp / ratesTables.size());
     }
+
 }

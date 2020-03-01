@@ -14,9 +14,11 @@ public class MainClass {
 
         BasicConfigurator.configure();                                                      // Log4j configuration
         final Logger log = LogManager.getRootLogger();
-        InputManager inputManager = new InputManager(args[0],args[1],args[2]);
+
+        InputManager inputManager = new InputManagerImpl(args[0],args[1],args[2]);
         FilesManager filesManager = new FilesManager(inputManager);
-        Parser parser = new Parser(inputManager.getCurrencyCode());
+        ParserUtil parserUtil = new ParserUtilImpl();
+        Parser parser = new Parser(inputManager.getCurrencyCode(), parserUtil);
 
         List<File> xmlFiles = filesManager.getXmlFiles();
 
