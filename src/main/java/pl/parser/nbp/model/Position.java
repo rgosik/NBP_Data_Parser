@@ -1,4 +1,4 @@
-package pl.parser.nbp.domain;
+package pl.parser.nbp.model;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;

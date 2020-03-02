@@ -13,12 +13,12 @@ import java.util.*;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
-public class FilesManager {
+public class FilesService {
 
     private InputManager inputManager;
     private static final Logger log = LogManager.getRootLogger();
 
-    public FilesManager(InputManager inputManager){
+    public FilesService(InputManager inputManager){
         this.inputManager = inputManager;
     }
 

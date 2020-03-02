@@ -16,11 +16,11 @@ public class MainClass {
         final Logger log = LogManager.getRootLogger();
 
         InputManager inputManager = new InputManagerImpl(args[0],args[1],args[2]);
-        FilesManager filesManager = new FilesManager(inputManager);
+        FilesService filesService = new FilesService(inputManager);
         ParserUtil parserUtil = new ParserUtilImpl();
         Parser parser = new Parser(inputManager.getCurrencyCode(), parserUtil);
 
-        List<File> xmlFiles = filesManager.getXmlFiles();
+        List<File> xmlFiles = filesService.getXmlFiles();
 
         if(parser.unmarshalXmlFilesToObjects(xmlFiles)) {
 

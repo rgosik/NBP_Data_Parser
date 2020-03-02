@@ -2,8 +2,8 @@ package pl.parser.nbp;
 
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
-import pl.parser.nbp.domain.Position;
-import pl.parser.nbp.domain.RatesTable;
+import pl.parser.nbp.model.Position;
+import pl.parser.nbp.model.RatesTable;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;

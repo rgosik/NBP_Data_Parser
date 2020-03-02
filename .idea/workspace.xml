@@ -2,28 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bafc33d3-d165-460b-91c3-a67318fc7645" name="Default" comment="minor access changes">
-      <change afterPath="$PROJECT_DIR$/src/main/java/pl/parser/nbp/InputManagerImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/pl/parser/nbp/ParserUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.travis.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/parser/nbp/FilesManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/parser/nbp/FilesManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/parser/nbp/InputManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/parser/nbp/InputManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/parser/nbp/MainClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/parser/nbp/MainClass.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/parser/nbp/Parser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/parser/nbp/Parser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/parser/nbp/Util.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/parser/nbp/ParserUtilImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/parser/nbp/xmlmodel/Position.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/parser/nbp/xmlmodel/Position.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/parser/nbp/xmlmodel/RatesTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/parser/nbp/xmlmodel/RatesTable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/pl.parser.nbp.kotlin_module" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/pl/parser/nbp/FilesManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pl/parser/nbp/FilesManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/pl/parser/nbp/InputManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pl/parser/nbp/InputManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/pl/parser/nbp/MainClass.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pl/parser/nbp/MainClass.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/pl/parser/nbp/Parser.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pl/parser/nbp/Parser.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/pl/parser/nbp/Util.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/pl/parser/nbp/XMLModel/Position.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pl/parser/nbp/XMLModel/Position.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/pl/parser/nbp/XMLModel/RatesTable.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pl/parser/nbp/XMLModel/RatesTable.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -195,7 +174,7 @@
       <workItem from="1579610951554" duration="93000" />
       <workItem from="1579719830438" duration="65000" />
       <workItem from="1581760480640" duration="439000" />
-      <workItem from="1583070289706" duration="3907000" />
+      <workItem from="1583070289706" duration="4535000" />
     </task>
     <task id="LOCAL-00001" summary="exception throws clean up">
       <created>1565432426487</created>
@@ -263,30 +242,30 @@
       <screen x="0" y="40" width="1536" height="824" />
     </state>
     <state x="646" y="211" key="#com.intellij.ide.util.TreeClassChooserDialog/0.40.1536.824@0.40.1536.824" timestamp="1583070977609" />
-    <state x="209" y="40" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1583071206829">
+    <state x="209" y="40" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1583188405662">
       <screen x="0" y="40" width="1536" height="824" />
     </state>
-    <state x="209" y="40" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.40.1536.824@0.40.1536.824" timestamp="1583071206829" />
-    <state x="549" y="207" key="FileChooserDialogImpl" timestamp="1583070896972">
+    <state x="209" y="40" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.40.1536.824@0.40.1536.824" timestamp="1583188405662" />
+    <state x="549" y="207" key="FileChooserDialogImpl" timestamp="1583074826845">
       <screen x="0" y="40" width="1536" height="824" />
     </state>
-    <state x="549" y="207" key="FileChooserDialogImpl/0.40.1536.824@0.40.1536.824" timestamp="1583070896972" />
-    <state width="1493" height="178" key="GridCell.Tab.0.bottom" timestamp="1583074352531">
+    <state x="549" y="207" key="FileChooserDialogImpl/0.40.1536.824@0.40.1536.824" timestamp="1583074826845" />
+    <state width="1493" height="178" key="GridCell.Tab.0.bottom" timestamp="1583074827856">
       <screen x="0" y="40" width="1536" height="824" />
     </state>
-    <state width="1493" height="178" key="GridCell.Tab.0.bottom/0.40.1536.824@0.40.1536.824" timestamp="1583074352531" />
-    <state width="1493" height="178" key="GridCell.Tab.0.center" timestamp="1583074352531">
+    <state width="1493" height="178" key="GridCell.Tab.0.bottom/0.40.1536.824@0.40.1536.824" timestamp="1583074827856" />
+    <state width="1493" height="178" key="GridCell.Tab.0.center" timestamp="1583074827856">
       <screen x="0" y="40" width="1536" height="824" />
     </state>
-    <state width="1493" height="178" key="GridCell.Tab.0.center/0.40.1536.824@0.40.1536.824" timestamp="1583074352531" />
-    <state width="1493" height="178" key="GridCell.Tab.0.left" timestamp="1583074352531">
+    <state width="1493" height="178" key="GridCell.Tab.0.center/0.40.1536.824@0.40.1536.824" timestamp="1583074827856" />
+    <state width="1493" height="178" key="GridCell.Tab.0.left" timestamp="1583074827856">
       <screen x="0" y="40" width="1536" height="824" />
     </state>
-    <state width="1493" height="178" key="GridCell.Tab.0.left/0.40.1536.824@0.40.1536.824" timestamp="1583074352531" />
-    <state width="1493" height="178" key="GridCell.Tab.0.right" timestamp="1583074352531">
+    <state width="1493" height="178" key="GridCell.Tab.0.left/0.40.1536.824@0.40.1536.824" timestamp="1583074827856" />
+    <state width="1493" height="178" key="GridCell.Tab.0.right" timestamp="1583074827856">
       <screen x="0" y="40" width="1536" height="824" />
     </state>
-    <state width="1493" height="178" key="GridCell.Tab.0.right/0.40.1536.824@0.40.1536.824" timestamp="1583074352531" />
+    <state width="1493" height="178" key="GridCell.Tab.0.right/0.40.1536.824@0.40.1536.824" timestamp="1583074827856" />
     <state x="249" y="40" key="SettingsEditor" timestamp="1583071051142">
       <screen x="0" y="40" width="1536" height="824" />
     </state>
