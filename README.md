@@ -1,7 +1,7 @@
 [![Build Status](https://travis-ci.com/rgosik/NBP_Data_Parser.svg?branch=master)](https://travis-ci.com/rgosik/NBP_Data_Parser)
 # NBP Data Parser
-## Program receives three command-line arguments
 
+Program receives three command-line arguments.
 First one is the "currency code".
 The two other are, respectively, "starting date" and "ending date" of the data that progeam will download to perform its calculations. 
 
