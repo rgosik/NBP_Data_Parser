@@ -11,31 +11,25 @@ public class InputManagerImpl implements InputManager{
 
     private static final Logger log = LogManager.getRootLogger();
     private String currencyCode;
-    private int editedStartDate;
-    private int editedEndDate;
-    private int startYear;
-    private int endYear;
+    private String startDate;
+    private String endDate;
 
     public InputManagerImpl(String currencyCode, String startDate, String endDate) throws Exception{
+        this.currencyCode = currencyCode;
 
         if (!currencyCode.matches("USD|EUR|CHF|GBP")) {
             log.error("Incorrect currency code");
-            System.exit(0);
+            System.exit(1);
         }
-
-        this.currencyCode = currencyCode;
 
         if(datesAreCorrect(startDate, endDate)) {
-            this.editedStartDate = Integer.parseInt(formatDate(startDate).replaceAll("[^a-zA-Z0-9]", "").substring(2));
-            this.editedEndDate = Integer.parseInt(formatDate(endDate).replaceAll("[^a-zA-Z0-9]", "").substring(2));
-            this.startYear = Integer.parseInt(startDate.substring(0, 4));
-            this.endYear = Integer.parseInt(endDate.substring(0, 4));
+            this.startDate = startDate;
+            this.endDate = endDate;
         } else {
-            log.error("Input end date is sooner than start date");
-            System.exit(0);
+            log.error("Input end date is sooner than input start date");
+            System.exit(1);
         }
-
-    }
+}
 
     // Zabezpieczenie przed podaniem daty w niewsłaciwej postaci
 
@@ -65,13 +59,23 @@ public class InputManagerImpl implements InputManager{
     }
 
     @Override
+    public int getEditStartDate() {
+        return Integer.parseInt(formatDate(startDate).replaceAll("[^a-zA-Z0-9]", "").substring(2));
+    }
+
+    @Override
+    public int getEditEndDate() {
+        return Integer.parseInt(formatDate(endDate).replaceAll("[^a-zA-Z0-9]", "").substring(2));
+    }
+
+    @Override
     public int getStartYear() {
-        return startYear;
+        return Integer.parseInt(startDate.substring(0, 4));
     }
 
     @Override
     public int getEndYear() {
-        return endYear;
+        return Integer.parseInt(endDate.substring(0, 4));
     }
 
     @Override
@@ -79,13 +83,4 @@ public class InputManagerImpl implements InputManager{
         return currencyCode;
     }
 
-    @Override
-    public int getEditedStartDate() {
-        return editedStartDate;
-    }
-
-    @Override
-    public int getEditedEndDate() {
-        return editedEndDate;
-    }
 }

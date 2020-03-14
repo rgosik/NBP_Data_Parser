@@ -86,7 +86,7 @@ public class FilesService {
         FileOutputStream xmlFos;
         List<File> xmlFiles = new ArrayList<>();
 
-        List<String> validXmlNames = trimDirTxt(inputManager.getEditedStartDate(), inputManager.getEditedEndDate());
+        List<String> validXmlNames = trimDirTxt(inputManager.getEditStartDate(), inputManager.getEditEndDate());
         int filesNumber = validXmlNames.size();
 
         for (int i = 0; i < filesNumber; i++) {

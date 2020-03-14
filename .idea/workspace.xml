@@ -1,8 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="bafc33d3-d165-460b-91c3-a67318fc7645" name="Default" comment="minor access changes">
+    <list default="true" id="bafc33d3-d165-460b-91c3-a67318fc7645" name="Default" comment="renames">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/parser/nbp/FilesService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/parser/nbp/FilesService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/parser/nbp/InputManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/parser/nbp/InputManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/parser/nbp/InputManagerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/parser/nbp/InputManagerImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/parser/nbp/MainClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/parser/nbp/MainClass.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/pl/parser/nbp/FilesManager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/pl/parser/nbp/InputManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pl/parser/nbp/InputManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/pl/parser/nbp/InputManagerImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pl/parser/nbp/InputManagerImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/pl/parser/nbp/MainClass.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pl/parser/nbp/MainClass.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/pl/parser/nbp/Parser.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pl/parser/nbp/Parser.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/pl/parser/nbp/XMLModel/Position.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/pl/parser/nbp/XMLModel/RatesTable.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -175,6 +186,11 @@
       <workItem from="1579719830438" duration="65000" />
       <workItem from="1581760480640" duration="439000" />
       <workItem from="1583070289706" duration="4535000" />
+      <workItem from="1583188380788" duration="723000" />
+      <workItem from="1583262892520" duration="163000" />
+      <workItem from="1583618612431" duration="853000" />
+      <workItem from="1583677557324" duration="33000" />
+      <workItem from="1584196588856" duration="1464000" />
     </task>
     <task id="LOCAL-00001" summary="exception throws clean up">
       <created>1565432426487</created>
@@ -211,7 +227,14 @@
       <option name="project" value="LOCAL" />
       <updated>1566475743298</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="renames">
+      <created>1583188459170</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1583188459170</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -223,7 +246,8 @@
     <MESSAGE value="minor code logic changes" />
     <MESSAGE value="minor main changes" />
     <MESSAGE value="minor access changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="minor access changes" />
+    <MESSAGE value="renames" />
+    <option name="LAST_COMMIT_MESSAGE" value="renames" />
   </component>
   <component name="WindowStateProjectService">
     <state x="485" y="95" key="#MainClass" timestamp="1583070549270">
@@ -234,9 +258,10 @@
       <screen x="0" y="40" width="1536" height="824" />
     </state>
     <state x="371" y="82" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.40.1536.824@0.40.1536.824" timestamp="1583071018241" />
-    <state x="574" y="162" key="#com.intellij.ide.util.MemberChooser" timestamp="1583074198663">
-      <screen x="0" y="40" width="1536" height="824" />
+    <state x="574" y="122" key="#com.intellij.ide.util.MemberChooser" timestamp="1584196732522">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
+    <state x="574" y="122" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1584196732522" />
     <state x="574" y="162" key="#com.intellij.ide.util.MemberChooser/0.40.1536.824@0.40.1536.824" timestamp="1583074198663" />
     <state x="646" y="211" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1583070977609">
       <screen x="0" y="40" width="1536" height="824" />
@@ -246,10 +271,14 @@
       <screen x="0" y="40" width="1536" height="824" />
     </state>
     <state x="209" y="40" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.40.1536.824@0.40.1536.824" timestamp="1583188405662" />
-    <state x="549" y="207" key="FileChooserDialogImpl" timestamp="1583074826845">
+    <state x="417" y="47" key="CommitChangelistDialog2" timestamp="1583188463957">
       <screen x="0" y="40" width="1536" height="824" />
     </state>
-    <state x="549" y="207" key="FileChooserDialogImpl/0.40.1536.824@0.40.1536.824" timestamp="1583074826845" />
+    <state x="417" y="47" key="CommitChangelistDialog2/0.40.1536.824@0.40.1536.824" timestamp="1583188463957" />
+    <state x="549" y="207" key="FileChooserDialogImpl" timestamp="1583677588763">
+      <screen x="0" y="40" width="1536" height="824" />
+    </state>
+    <state x="549" y="207" key="FileChooserDialogImpl/0.40.1536.824@0.40.1536.824" timestamp="1583677588763" />
     <state width="1493" height="178" key="GridCell.Tab.0.bottom" timestamp="1583074827856">
       <screen x="0" y="40" width="1536" height="824" />
     </state>

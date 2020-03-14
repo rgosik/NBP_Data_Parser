@@ -12,11 +12,13 @@ public class MainClass {
 
     public static void main(String[] args) throws Exception {
 
-        BasicConfigurator.configure();                                                      // Log4j configuration
+        // Log4j configuration
+        BasicConfigurator.configure();
         final Logger log = LogManager.getRootLogger();
 
         InputManager inputManager = new InputManagerImpl(args[0],args[1],args[2]);
         FilesService filesService = new FilesService(inputManager);
+
         ParserUtil parserUtil = new ParserUtilImpl();
         Parser parser = new Parser(inputManager.getCurrencyCode(), parserUtil);
 
