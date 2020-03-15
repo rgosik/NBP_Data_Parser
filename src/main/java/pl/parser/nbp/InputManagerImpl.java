@@ -33,8 +33,7 @@ public class InputManagerImpl implements InputManager{
 
     // Zabezpieczenie przed podaniem daty w niewsłaciwej postaci
 
-    @Override
-    public boolean datesAreCorrect(String startDate, String endDate) throws Exception {
+    private boolean datesAreCorrect(String startDate, String endDate) throws Exception {
         Date dateStart = new SimpleDateFormat("yyyy-MM-dd").parse(startDate);
         Date dateEnd = new SimpleDateFormat("yyyy-MM-dd").parse(endDate);
 
@@ -43,8 +42,7 @@ public class InputManagerImpl implements InputManager{
 
     // Formatowanie podanej daty do formatu który pozwoli, w dalszej części programu, łatwo odnajdywać i pobierać odpowiedni pliki
 
-    @Override
-    public String formatDate(String date) {
+    private String formatDate(String date) {
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
         format.setLenient(false);
 
