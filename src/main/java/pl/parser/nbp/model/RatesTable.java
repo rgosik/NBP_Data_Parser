@@ -1,16 +1,17 @@
 package pl.parser.nbp.model;
 
+import pl.parser.nbp.repositories.RatesTableRepository;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
-import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
 
 @XmlRootElement(name = "tabela_kursow")
 @XmlAccessorType(XmlAccessType.PROPERTY)
-public class RatesTable implements Serializable {
+public class RatesTable implements RatesTableRepository {
 
     private String numer_tabeli;
     private Date data_notowania;
@@ -27,6 +28,7 @@ public class RatesTable implements Serializable {
         this.pozycja = pozycja;
     }
 
+    @Override
     public String getNumer_tabeli() {
         return numer_tabeli;
     }
@@ -35,6 +37,7 @@ public class RatesTable implements Serializable {
         this.numer_tabeli = numer_tabeli;
     }
 
+    @Override
     public Date getData_notowania() {
         return data_notowania;
     }
@@ -43,6 +46,7 @@ public class RatesTable implements Serializable {
         this.data_notowania = data_notowania;
     }
 
+    @Override
     public Date getData_publikacji() {
         return data_publikacji;
     }
@@ -51,6 +55,7 @@ public class RatesTable implements Serializable {
         this.data_publikacji = data_publikacji;
     }
 
+    @Override
     public List<Position> getPozycja() {
         return pozycja;
     }

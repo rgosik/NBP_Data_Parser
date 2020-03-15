@@ -1,14 +1,15 @@
 package pl.parser.nbp.model;
 
+import pl.parser.nbp.repositories.PositionRepository;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
-import java.io.Serializable;
 
 
 @XmlRootElement(name = "pozycja")
 @XmlAccessorType(XmlAccessType.PROPERTY)
-public class Position implements Serializable {
+public class Position implements PositionRepository {
 
     private String nazwa_waluty;
     private int przelicznik;
@@ -27,6 +28,7 @@ public class Position implements Serializable {
         this.kurs_sprzedazy = kurs_sprzedazy;
     }
 
+    @Override
     public String getNazwa_waluty() {
         return nazwa_waluty;
     }
@@ -35,6 +37,7 @@ public class Position implements Serializable {
         this.nazwa_waluty = nazwa_waluty;
     }
 
+    @Override
     public int getPrzelicznik() {
         return przelicznik;
     }
@@ -43,6 +46,7 @@ public class Position implements Serializable {
         this.przelicznik = przelicznik;
     }
 
+    @Override
     public String getKod_waluty() {
         return kod_waluty;
     }
@@ -51,6 +55,7 @@ public class Position implements Serializable {
         this.kod_waluty = kod_waluty;
     }
 
+    @Override
     public String getKurs_kupna() {
         return kurs_kupna;
     }
@@ -59,6 +64,7 @@ public class Position implements Serializable {
         this.kurs_kupna = kurs_kupna;
     }
 
+    @Override
     public String getKurs_sprzedazy() {
         return kurs_sprzedazy;
     }
