@@ -4,19 +4,21 @@ import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import pl.parser.nbp.model.Position;
 import pl.parser.nbp.model.RatesTable;
+import pl.parser.nbp.repositories.RatesTableRepository;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
 import java.io.File;
-import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class Parser {
 
     private static final Logger log = LogManager.getRootLogger();
     private ParserUtil parserUtil;
-    private List<RatesTable> ratesTables = new ArrayList<>();
+    private Set<RatesTableRepository> ratesTables = new HashSet<>();
     private String currencyCode;
 
     public Parser(String currencyCode, ParserUtil parserUtil){
@@ -52,7 +54,7 @@ public class Parser {
         String kurs = null;
         String rateType = parserUtil.geRateType();
 
-        for (RatesTable ratesTable : ratesTables) {
+        for (RatesTableRepository ratesTable : ratesTables) {
             for (Position pozycja : ratesTable.getPozycja()) {
                 if (pozycja.getKod_waluty().equals(currencyCode)) {
 
@@ -76,7 +78,7 @@ public class Parser {
         String stringKurs;
         double doubleKurs;
 
-        for (RatesTable ratesTable : ratesTables) {
+        for (RatesTableRepository ratesTable : ratesTables) {
             for (Position pozycja : ratesTable.getPozycja()) {
                 if (pozycja.getKod_waluty().equals(currencyCode)) {
 
