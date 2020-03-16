@@ -51,7 +51,7 @@ public class InputManagerImpl implements InputManager{
         } catch (ParseException e) {
             log.error("Date: " + date + " is not compatible with required foramt: " +
                     (format).toPattern() + ", or given date is incorrect");
-            System.exit(0);
+            System.exit(1);
         }
         return date;
     }
