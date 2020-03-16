@@ -19,9 +19,9 @@ public class MainClass {
         final Logger log = LogManager.getRootLogger();
 
         InputManager inputManager = new InputManagerImpl(args[0],args[1],args[2]);
-        FilesService filesService = new FilesService(inputManager);
+        FilesManager filesManager = new FilesManager(inputManager);
 
-        List<File> xmlFiles = filesService.getXmlFiles();
+        List<File> xmlFiles = filesManager.getXmlFiles();
 
         ParserUtil parserUtil = new ParserUtilImpl();
         Data data = new DataImpl(xmlFiles);

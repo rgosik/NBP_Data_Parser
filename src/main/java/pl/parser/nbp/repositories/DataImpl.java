@@ -23,7 +23,7 @@ public class DataImpl implements Data {
        unmarshalXmlFilesToObjects(xmlFiles);
     }
 
-    // Parsowanie danych z plików XML do listy "ratesTables"
+    // Konwertowanie danych z plików XML do listy "ratesTables"
 
     @Override
     public boolean unmarshalXmlFilesToObjects(List<File> xmlFiles) {

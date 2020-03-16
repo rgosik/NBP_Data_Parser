@@ -25,12 +25,12 @@ public class Parser {
 
         for (RatesTableRepository entity : data.getRatesTables()) {
             for (Position pozycja : entity.getPozycja()) {
-                if (pozycja.getKod_waluty().equals(currencyCode)) {
+                if (pozycja.getCurrencyCode().equals(currencyCode)) {
 
                     if ("Buy".equals(rateType)) {
-                        kurs = pozycja.getKurs_kupna();
+                        kurs = pozycja.getBuyingRate();
                     } else if("Sell".equals(rateType)){
-                        kurs = pozycja.getKurs_sprzedazy();
+                        kurs = pozycja.getSellingRate();
                     }
                     rate += parserUtil.commaStringToDouble(kurs);
                 }
@@ -49,9 +49,9 @@ public class Parser {
 
         for (RatesTableRepository entity : data.getRatesTables()) {
             for (Position pozycja : entity.getPozycja()) {
-                if (pozycja.getKod_waluty().equals(currencyCode)) {
+                if (pozycja.getCurrencyCode().equals(currencyCode)) {
 
-                    stringKurs = pozycja.getKurs_sprzedazy();
+                    stringKurs = pozycja.getSellingRate();
                     doubleKurs = parserUtil.commaStringToDouble(stringKurs);
                     tmp += Math.pow(doubleKurs - rateMean, 2);
                 }
