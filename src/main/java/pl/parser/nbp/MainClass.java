@@ -3,6 +3,8 @@ package pl.parser.nbp;
 import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
+import pl.parser.nbp.repositories.Data;
+import pl.parser.nbp.repositories.DataImpl;
 
 import java.io.File;
 import java.text.DecimalFormat;
@@ -19,12 +21,14 @@ public class MainClass {
         InputManager inputManager = new InputManagerImpl(args[0],args[1],args[2]);
         FilesService filesService = new FilesService(inputManager);
 
-        ParserUtil parserUtil = new ParserUtilImpl();
-        Parser parser = new Parser(inputManager.getCurrencyCode(), parserUtil);
-
         List<File> xmlFiles = filesService.getXmlFiles();
 
-        if(parser.unmarshalXmlFilesToObjects(xmlFiles)) {
+        ParserUtil parserUtil = new ParserUtilImpl();
+        Data data = new DataImpl(xmlFiles);
+        Parser parser = new Parser(inputManager.getCurrencyCode(), parserUtil, data);
+
+
+        if(data.unmarshalXmlFilesToObjects(xmlFiles)) {
 
             log.info("Mean Rate, Buy or Sell ?: ");
             Double meanRate = parser.getMeanRate();

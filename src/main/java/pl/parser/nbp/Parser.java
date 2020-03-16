@@ -1,50 +1,19 @@
 package pl.parser.nbp;
 
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
 import pl.parser.nbp.model.Position;
-import pl.parser.nbp.model.RatesTable;
+import pl.parser.nbp.repositories.Data;
 import pl.parser.nbp.repositories.RatesTableRepository;
-
-import javax.xml.bind.JAXBContext;
-import javax.xml.bind.JAXBException;
-import javax.xml.bind.Unmarshaller;
-import java.io.File;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
 
 public class Parser {
 
-    private static final Logger log = LogManager.getRootLogger();
     private ParserUtil parserUtil;
-    private Set<RatesTableRepository> ratesTables = new HashSet<>();
     private String currencyCode;
+    private Data data;
 
-    public Parser(String currencyCode, ParserUtil parserUtil){
+    public Parser(String currencyCode, ParserUtil parserUtil, Data data){
         this.currencyCode = currencyCode;
         this.parserUtil = parserUtil;
-    }
-
-    // Parsowanie danych z plików XML do listy "ratesTables"
-
-    public boolean unmarshalXmlFilesToObjects(List<File> xmlFiles) {
-        JAXBContext jaxbContext;
-
-        for (File xmlFile : xmlFiles) {
-            try {
-                jaxbContext = JAXBContext.newInstance(RatesTable.class);
-
-                Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
-                ratesTables.add((RatesTable) jaxbUnmarshaller.unmarshal(xmlFile));
-
-            } catch (JAXBException e) {
-                log.error("failed", e);
-                return false;
-            }
-        }
-
-        return true;
+        this.data = data;
     }
 
     // Policzenie średniej kursu sprzedaży, bądź kupna, dla danych w liście "ratesTables"
@@ -54,8 +23,8 @@ public class Parser {
         String kurs = null;
         String rateType = parserUtil.geRateType();
 
-        for (RatesTableRepository ratesTable : ratesTables) {
-            for (Position pozycja : ratesTable.getPozycja()) {
+        for (RatesTableRepository entity : data.getRatesTables()) {
+            for (Position pozycja : entity.getPozycja()) {
                 if (pozycja.getKod_waluty().equals(currencyCode)) {
 
                     if ("Buy".equals(rateType)) {
@@ -67,7 +36,7 @@ public class Parser {
                 }
             }
         }
-        return rate / ratesTables.size();
+        return rate / data.getRatesTables().size();
     }
 
     // Policzenie odchylenia standardowego kursu sprzedaży, bądź kupna, dla danych w liście "ratesTables" i podanego kodu waluty
@@ -78,8 +47,8 @@ public class Parser {
         String stringKurs;
         double doubleKurs;
 
-        for (RatesTableRepository ratesTable : ratesTables) {
-            for (Position pozycja : ratesTable.getPozycja()) {
+        for (RatesTableRepository entity : data.getRatesTables()) {
+            for (Position pozycja : entity.getPozycja()) {
                 if (pozycja.getKod_waluty().equals(currencyCode)) {
 
                     stringKurs = pozycja.getKurs_sprzedazy();
@@ -88,7 +57,7 @@ public class Parser {
                 }
             }
         }
-        return Math.sqrt(tmp / ratesTables.size());
+        return Math.sqrt(tmp / data.getRatesTables().size());
     }
 
 }
