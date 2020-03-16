@@ -1,4 +1,4 @@
-package pl.parser.nbp;
+package pl.parser.nbp.services;
 
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;

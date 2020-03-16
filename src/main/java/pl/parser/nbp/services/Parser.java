@@ -1,4 +1,4 @@
-package pl.parser.nbp;
+package pl.parser.nbp.services;
 
 import pl.parser.nbp.model.Position;
 import pl.parser.nbp.repositories.Data;

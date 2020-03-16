@@ -8,9 +8,9 @@ import java.util.List;
 
 public interface RatesTableRepository extends Serializable {
 
-    String getNumer_tabeli();
-    Date getData_notowania();
-    Date getData_publikacji();
+    String getTableNumber();
+    Date getTradingDate();
+    Date getPublicationDate();
     List<Position> getPozycja();
 
 }

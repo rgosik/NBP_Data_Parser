@@ -16,32 +16,32 @@ import java.util.List;
 public class RatesTable implements RatesTableRepository {
 
     @XmlElement(name = "numer_tabeli")
-    @Setter private String numer_tabeli;
+    @Setter private String tableNumber;
     @XmlElement(name = "data_notowania")
-    @Setter private Date data_notowania;
+    @Setter private Date tradingDate;
     @XmlElement(name = "data_publikacji")
-    @Setter private Date data_publikacji;
+    @Setter private Date publicationDate;
     @XmlElement(name = "pozycja")
-    @Setter private List<Position> pozycja;
+    @Setter private List<Position> position;
 
     @Override
-    public String getNumer_tabeli() {
-        return numer_tabeli;
+    public String getTableNumber() {
+        return tableNumber;
     }
 
     @Override
-    public Date getData_notowania() {
-        return data_notowania;
+    public Date getTradingDate() {
+        return tradingDate;
     }
 
     @Override
-    public Date getData_publikacji() {
-        return data_publikacji;
+    public Date getPublicationDate() {
+        return publicationDate;
     }
 
     @Override
     public List<Position> getPozycja() {
-        return pozycja;
+        return position;
     }
 
 }
