@@ -3,9 +3,12 @@ package pl.parser.nbp.model;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import pl.parser.nbp.repositories.RatesTableRepository;
 
-import javax.xml.bind.annotation.*;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
@@ -13,7 +16,7 @@ import java.util.List;
 @AllArgsConstructor
 @XmlRootElement(name = "tabela_kursow")
 @XmlAccessorType(XmlAccessType.FIELD)
-public class RatesTable implements RatesTableRepository {
+public class RatesTable implements Serializable {
 
     @XmlElement(name = "numer_tabeli")
     @Setter private String tableNumber;
@@ -24,22 +27,18 @@ public class RatesTable implements RatesTableRepository {
     @XmlElement(name = "pozycja")
     @Setter private List<Position> position;
 
-    @Override
     public String getTableNumber() {
         return tableNumber;
     }
 
-    @Override
     public Date getTradingDate() {
         return tradingDate;
     }
 
-    @Override
     public Date getPublicationDate() {
         return publicationDate;
     }
 
-    @Override
     public List<Position> getPozycja() {
         return position;
     }

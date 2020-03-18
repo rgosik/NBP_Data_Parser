@@ -1,19 +1,19 @@
-package pl.parser.nbp.services;
+package pl.parser.nbp;
 
 import pl.parser.nbp.model.Position;
-import pl.parser.nbp.repositories.Data;
-import pl.parser.nbp.repositories.RatesTableRepository;
+import pl.parser.nbp.model.RatesTable;
+import pl.parser.nbp.services.RatesTableService;
 
 public class Parser {
 
     private ParserUtil parserUtil;
     private String currencyCode;
-    private Data data;
+    private RatesTableService ratesTableService;
 
-    public Parser(String currencyCode, ParserUtil parserUtil, Data data){
+    public Parser(String currencyCode, ParserUtil parserUtil, RatesTableService ratesTableService){
         this.currencyCode = currencyCode;
         this.parserUtil = parserUtil;
-        this.data = data;
+        this.ratesTableService = ratesTableService;
     }
 
     // Policzenie średniej kursu sprzedaży, bądź kupna, dla danych w liście "ratesTables"
@@ -23,7 +23,7 @@ public class Parser {
         String kurs = null;
         String rateType = parserUtil.geRateType();
 
-        for (RatesTableRepository entity : data.getRatesTables()) {
+        for (RatesTable entity : ratesTableService.getRatesTables()) {
             for (Position pozycja : entity.getPozycja()) {
                 if (pozycja.getCurrencyCode().equals(currencyCode)) {
 
@@ -36,7 +36,7 @@ public class Parser {
                 }
             }
         }
-        return rate / data.getRatesTables().size();
+        return rate / ratesTableService.getRatesTables().size();
     }
 
     // Policzenie odchylenia standardowego kursu sprzedaży, bądź kupna, dla danych w liście "ratesTables" i podanego kodu waluty
@@ -47,7 +47,7 @@ public class Parser {
         String stringKurs;
         double doubleKurs;
 
-        for (RatesTableRepository entity : data.getRatesTables()) {
+        for (RatesTable entity : ratesTableService.getRatesTables()) {
             for (Position pozycja : entity.getPozycja()) {
                 if (pozycja.getCurrencyCode().equals(currencyCode)) {
 
@@ -57,7 +57,7 @@ public class Parser {
                 }
             }
         }
-        return Math.sqrt(tmp / data.getRatesTables().size());
+        return Math.sqrt(tmp / ratesTableService.getRatesTables().size());
     }
 
 }

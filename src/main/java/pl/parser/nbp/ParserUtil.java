@@ -1,4 +1,4 @@
-package pl.parser.nbp.services;
+package pl.parser.nbp;
 
 public interface ParserUtil {
     double commaStringToDouble(String rate) throws Exception;

@@ -1,4 +1,4 @@
-package pl.parser.nbp.services;
+package pl.parser.nbp;
 
 public interface InputManager {
     String getCurrencyCode();

@@ -1,4 +1,4 @@
-package pl.parser.nbp.repositories;
+package pl.parser.nbp.services;
 
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
@@ -12,14 +12,13 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-public class DataImpl implements Data {
+public class RatesTableServiceImpl implements RatesTableService {
 
     private static final Logger log = LogManager.getRootLogger();
 
-    private Set<RatesTableRepository> ratesTables = new HashSet<>();
+    private Set<RatesTable> ratesTables = new HashSet<>();
 
-    public DataImpl(List<File> xmlFiles) {
-
+    public RatesTableServiceImpl(List<File> xmlFiles) {
        unmarshalXmlFilesToObjects(xmlFiles);
     }
 
@@ -46,7 +45,7 @@ public class DataImpl implements Data {
     }
 
     @Override
-    public Set<RatesTableRepository> getRatesTables() {
+    public Set<RatesTable> getRatesTables() {
         return ratesTables;
     }
 }
