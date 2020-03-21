@@ -24,7 +24,7 @@ public class Parser {
         String rateType = parserUtil.geRateType();
 
         for (RatesTable entity : ratesTableService.getRatesTables()) {
-            for (Position pozycja : entity.getPozycja()) {
+            for (Position pozycja : entity.getPosition()) {
                 if (pozycja.getCurrencyCode().equals(currencyCode)) {
 
                     if ("Buy".equals(rateType)) {
@@ -48,7 +48,7 @@ public class Parser {
         double doubleKurs;
 
         for (RatesTable entity : ratesTableService.getRatesTables()) {
-            for (Position pozycja : entity.getPozycja()) {
+            for (Position pozycja : entity.getPosition()) {
                 if (pozycja.getCurrencyCode().equals(currencyCode)) {
 
                     stringKurs = pozycja.getSellingRate();

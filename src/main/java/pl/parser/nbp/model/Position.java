@@ -1,13 +1,14 @@
 package pl.parser.nbp.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
-import javax.xml.bind.annotation.*;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
 import java.io.Serializable;
 
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
 @XmlRootElement(name = "pozycja")
@@ -15,14 +16,14 @@ import java.io.Serializable;
 public class Position implements Serializable {
 
     @XmlElement(name = "nazwa_waluty")
-    @Getter @Setter private String currencyName;
+    private String currencyName;
     @XmlElement(name = "przelicznik")
-    @Getter @Setter private int conversionFactor;
+    private int conversionFactor;
     @XmlElement(name = "kod_waluty")
-    @Getter @Setter private String currencyCode;
+    private String currencyCode;
     @XmlElement(name = "kurs_kupna")
-    @Getter @Setter private String buyingRate;
+    private String buyingRate;
     @XmlElement(name = "kurs_sprzedazy")
-    @Getter @Setter private String sellingRate;
-    
+    private String sellingRate;
+
 }
